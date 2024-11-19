@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.bg-earthy-brown {
+  background-color: #8C644A;
+}
+
+.bg-earthy-tan {
+  background-color: #E6D5B8;
+}
+
+.bg-earthy-beige {
+  background-color: #F5ECD9;
+}
+
+.text-earthy-brown {
+  color: #8C644A;
+}
+
+.text-earthy-yellow {
+  color: #D4A373;
+}
+
+.text-earthy-tan {
+  color: #E6D5B8;
+}
+
+button {
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #D4A373;
+}
