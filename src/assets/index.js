@@ -1,5 +1,10 @@
-import OnionImg from "./onion.png";
-import PotatoImg from "./potato.png";
-import TomatoImg from "./tomato.png";
+import OnionImg from "./Catagories/Onion edt-min.png";
+import PotatoImg from "./Catagories/Potato edt-min.png";
+import TomatoImg from "./Catagories/Tomato edt-min.png";
+import RiceImg from "./Catagories/Rice.png";
+import ChiliImg from "./Catagories/Chili.png";
+import GarlicImg from "./Catagories/Garlic.png";
+import DaalImg from "./Catagories/Daal.png";
+import Logo from "./Logo.png";
 
-export { OnionImg, PotatoImg, TomatoImg };
+export { OnionImg, PotatoImg, TomatoImg, RiceImg, ChiliImg, GarlicImg, DaalImg, Logo };
