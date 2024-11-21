@@ -6,5 +6,6 @@ import ChiliImg from "./Catagories/Chili.png";
 import GarlicImg from "./Catagories/Garlic.png";
 import DaalImg from "./Catagories/Daal.png";
 import Logo from "./Logo.png";
+import Leaves from "./Leaves.png";
 
-export { OnionImg, PotatoImg, TomatoImg, RiceImg, ChiliImg, GarlicImg, DaalImg, Logo };
+export { OnionImg, PotatoImg, TomatoImg, RiceImg, ChiliImg, GarlicImg, DaalImg, Logo, Leaves };

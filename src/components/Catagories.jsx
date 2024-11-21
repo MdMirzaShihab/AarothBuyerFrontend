@@ -14,7 +14,7 @@ return (
           <img
             src={catagory.image}
             alt={`${catagory.name}'s picture`}
-            className={`w-40 p-5 group-hover:bg-earthy-tan shadow-xl rounded-3xl object-cover`}
+            className={`w-40 p-5 group-hover:bg-earthy-tan shadow-xl rounded-3xl object-cover transition duration-500 ease-in-out`}
           />
 
       </div>

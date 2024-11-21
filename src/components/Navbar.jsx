@@ -71,7 +71,7 @@ const Navbar = () => {
             {/* Seller Button */}
             <Link 
               to="/seller" 
-              className="px-4 py-2 bg-earthy-tan text-earthy-brown rounded-full hover:bg-earthy-yellow hover:text-white"
+              className="px-4 py-2 bg-earthy-tan text-earthy-brown rounded-full hover:text-forest transition duration-300 ease-in-out"
             >
               I am a Seller
             </Link>
@@ -90,14 +90,15 @@ const Navbar = () => {
 
 
             {/* Sign In/Sign Out Button */}
-            <button className="text-lg font-bold hover:font-semibold text-earthy-brown hover:bg-earthy-beige p-2 rounded-xl">
+            <button className="text-lg font-bold hover:text-olive text-earthy-brown hover:bg-transparent transition duration-300 ease-in-out">
               Sign In
             </button>
+
           </div>
 
           {/* Mobile Menu Toggle */}
           <button onClick={toggleMenu} className="md:hidden text-earthy-brown">
-            <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" >
               <path d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>

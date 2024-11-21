@@ -116,9 +116,9 @@ const productCatagories =  [
   ]
 
   const hubs = [
-    { name: "Hub A", location: "City 1", availableTrucks: 5 },
-    { name: "Hub B", location: "City 2", availableTrucks: 3 },
-    { name: "Hub C", location: "City 3", availableTrucks: 7 },
+    { name: "Baliakandi", location: "Rajbari, Dhaka", AvgPrice: 120 },
+    { name: "Joydevpur", location: "Gazipur, Dhaka", availableTrucks: 3 },
+    { name: "Nandail", location: "Nandail, Mymensingh", availableTrucks: 7 },
   ];
 
 
