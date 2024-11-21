@@ -116,9 +116,9 @@ const productCatagories =  [
   ]
 
   const hubs = [
-    { name: "Baliakandi", location: "Rajbari, Dhaka", AvgPrice: 120 },
-    { name: "Joydevpur", location: "Gazipur, Dhaka", availableTrucks: 3 },
-    { name: "Nandail", location: "Nandail, Mymensingh", availableTrucks: 7 },
+    { hubId: 1, name: "Baliakandi", location: "Rajbari, Dhaka" },
+    { hubId: 2, name: "Joydevpur", location: "Gazipur, Dhaka" },
+    { hubId: 3, name: "Nandail", location: "Nandail, Mymensingh" },
   ];
 
 
