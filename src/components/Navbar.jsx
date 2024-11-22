@@ -90,7 +90,7 @@ const Navbar = () => {
 
 
             {/* Sign In/Sign Out Button */}
-            <button className="text-lg font-bold hover:text-olive text-earthy-brown hover:bg-transparent transition duration-300 ease-in-out">
+            <button className="text-lg font-bold hover:text-forest text-earthy-brown hover:bg-transparent transition duration-300 ease-in-out">
               Sign In
             </button>
 

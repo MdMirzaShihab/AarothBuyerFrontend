@@ -29,12 +29,12 @@ return (
 );
 };
 
-const Catagories = () => {
+const CatagoriesSectionHome = () => {
 
     return (
-      <section className="py-16 px-2 md:px-16">
+      <section className="pb-10 pt-4 px-2 md:px-16">
         <h2 className="text-4xl text-center font-bold text-earthy-brown">Catagories</h2>
-        <div className="flex flex-wrap justify-center gap-10 mt-8">
+        <div className="flex flex-wrap justify-center gap-2 mt-2">
           {productCatagories.map((catagory) => (
             <CatagoryCard key={catagory.id} catagory={catagory} />
           ))}
@@ -52,4 +52,4 @@ const Catagories = () => {
 };
 
 
-export default Catagories;
+export default CatagoriesSectionHome;

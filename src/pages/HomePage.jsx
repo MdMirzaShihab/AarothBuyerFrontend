@@ -1,6 +1,7 @@
 import HeroSection from "../components/HeroSection";
-import Catagories from "../components/Catagories";
-import HubsInfo from "../components/HubsInfo";
+import Catagories from "../components/CatagoriesSectionHome";
+import Products from "../components/ProductSectionHome";
+import Hubs from "../components/HubsSectionHome";
 import Footer from "../components/Footer";
 
 export default function HomePage() {
@@ -8,7 +9,8 @@ export default function HomePage() {
     <div>
       <HeroSection />
       <Catagories />
-      <HubsInfo />
+      <Hubs />
+      <Products />
       <Footer />
     </div>
   );

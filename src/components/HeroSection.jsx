@@ -3,8 +3,9 @@ import { Leaves } from "../assets";
 const HeroSection = () => {
   return (
     <section className="bg-earthy-beige py-16 px-8 text-center">
-      <h1 className="text-4xl font-bold text-earthy-brown">
-        Welcome to Aaroth.com
+      <h1 className="text-4xl font-bold text-forest">
+        Welcome to
+        <span className="text-olive"> Aaroth.com</span> 
       </h1>
       <img
         src= {Leaves}

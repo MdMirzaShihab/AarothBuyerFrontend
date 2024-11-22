@@ -16,11 +16,11 @@ const HubCard = ({ hubs }) => {
   );
 };
 
-const HubsInfo = () => {
+const HubsSectionHome = () => {
   return (
-    <section className="py-16 px-8 bg-earthy-beige">
+    <section className="pb-10 pt-4 px-2 bg-earthy-beige">
       <h2 className="text-2xl font-bold text-earthy-brown">Hubs</h2>
-      <div className="flex flex-wrap justify-center gap-10 mt-8">
+      <div className="flex flex-wrap justify-center gap-2 mt-8">
         {hubs.map((hub) => (
           <HubCard key={hub.hubId} hubs={hub} />
         ))}
@@ -29,5 +29,5 @@ const HubsInfo = () => {
   );
 }
 
-export default HubsInfo;
+export default HubsSectionHome;
   
