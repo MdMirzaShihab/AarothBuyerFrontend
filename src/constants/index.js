@@ -1,4 +1,4 @@
-import { ChiliImg, DaalImg, GarlicImg, OnionImg, PotatoImg, RiceImg, TomatoImg } from "../assets";
+import { ChiliImg, DaalImg, FreshChiniguraChal, FreshRedSmallOnions, FreshShamratOnion, FreshThaiTomatoes, GarlicImg, GreenDeshiChili, LargeFreshGarlic, OnionImg, PotatoImg, RedLargeOnions, RiceImg, RoundLargePotatoes, SmallPotatos, TomatoImg } from "../assets";
 
 
 const productCatagories =  [
@@ -55,64 +55,104 @@ const productCatagories =  [
   const products =  [
     {
       "id": 1,
-      "name": "Tomatoes",
+      "name": "Fresh Thai Tomatoes",
       "catagory": "Tomato",
-      "image": TomatoImg,
-      "minQuantity": 200,
-      "maxQuantity": 500,
+      "image": FreshThaiTomatoes,
+      "minQuantity": 20,
+      "maxQuantity": 800,
       "location": "Rajshahi",
-      "price": 2.5
+      "price": 117,
+      "shipping": 3
     },
     {
       "id": 2,
-      "name": "Potatoes",
+      "name": "Round large potatoes",
       "catagory": "Potato",
-      "image": PotatoImg,
-      "minQuantity": 500,
+      "image": RoundLargePotatoes,
+      "minQuantity": 50,
       "maxQuantity": 1000,
       "location": "Bogura",
-      "price": 1.2
+      "price": 153,
+      "shipping": 3
     },
     {
       "id": 3,
-      "name": "Onions",
+      "name": "Red large Onions",
       "catagory": "Onion",
-      "image": OnionImg,
-      "minQuantity": 300,
+      "image": RedLargeOnions,
+      "minQuantity": 15,
       "maxQuantity": 600,
       "location": "Rajbari",
-      "price": 1.5
+      "price": 105,
+      "shipping": 2.5
     },
     {
       "id": 4,
-      "name": "Rice",
+      "name": "Fresh Chinigura Chal",
       "catagory": "Rice",
-      "image": RiceImg,
-      "minQuantity": 300,
-      "maxQuantity": 600,
+      "image": FreshChiniguraChal,
+      "minQuantity": 10,
+      "maxQuantity": 400,
       "location": "Mymensingh",
-      "price": 1.5
+      "price": 149,
+      "shipping": 2
     },
     {
       "id": 5,
-      "name": "Chili",
+      "name": "Green Deshi Chili",
       "catagory": "Chili",
-      "image": ChiliImg,
-      "minQuantity": 300,
-      "maxQuantity": 600,
+      "image": GreenDeshiChili,
+      "minQuantity": 10,
+      "maxQuantity": 200,
       "location": "Cuadanga",
-      "price": 1.5
+      "price": 96,
+      "shipping": 1.5
     },
     {
       "id": 6,
-      "name": "Garlic",
+      "name": "Large Fresh Garlic",
       "catagory": "Garlic",
-      "image": GarlicImg, 
-      "minQuantity": 300,
+      "image": LargeFreshGarlic, 
+      "minQuantity": 20,
       "maxQuantity": 600,
-      "location": "Rajbari",  
-      "price": 1.5
-    } 
+      "location": "Rajbari",
+      "price": 141,
+      "shipping": 2
+    },
+    {
+      "id": 7,
+      "name": "Fresh Shamrat Onion",
+      "catagory": "Onion",
+      "image": FreshShamratOnion,
+      "minQuantity": 20,
+      "maxQuantity": 600,
+      "location": "Rajbari",
+      "price": 115,
+      "shipping": 2
+    },
+    {
+      "id": 8,
+      "name": "Small Potatos",
+      "catagory": "Potato",
+      "image": SmallPotatos,
+      "minQuantity": 20,
+      "maxQuantity": 600,
+      "location": "Rajbari",
+      "price": 112,
+      "shipping": 2
+    },
+    {
+      "id": 9,
+      "name": "Fresh Red Small Onions",
+      "catagory": "Onion",
+      "image": FreshRedSmallOnions,
+      "minQuantity": 20,
+      "maxQuantity": 600,
+      "location": "Rajbari",
+      "price": 105,
+      "shipping": 2
+    }
+
   ]
 
   const hubs = [
