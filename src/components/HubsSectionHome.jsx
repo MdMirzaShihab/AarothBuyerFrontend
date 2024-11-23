@@ -3,6 +3,11 @@ import HubCardHome from "../cards/HubCardHome";
 import { hubs } from "../constants";
 import { useEffect, useState } from "react";
 import Select from "react-select";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css'; // Import core Swiper styles
+import 'swiper/css/pagination'; // Import pagination styles (if you use pagination)
+import 'swiper/css/navigation'; // Import navigation styles (if you use navigation)
+import { Navigation } from "swiper/modules";
 
 
 
@@ -91,8 +96,9 @@ const HubsSectionHome = () => {
           options={divisionOptions}
           value={divisionOptions.find((option) => option.value === selectedDivision)}
           onChange={handleDivisionChange}
+          isClearable
           placeholder="Select Division"
-          className="w-56"
+          className="w-56 z-10"
         />
 
         {/* District Select */}
@@ -100,19 +106,45 @@ const HubsSectionHome = () => {
           options={getDistrictOptions()}
           value={getDistrictOptions().find((option) => option.value === selectedDistrict)}
           onChange={handleDistrictChange}
+          isClearable
           placeholder="Select District"
-          className="w-56"
+          className="w-56 z-10"
           isDisabled={!selectedDivision} // Disable District select until Division is selected
         />
         
       </div>
       </div>
       
-      <div className="flex flex-wrap justify-center gap-2 mt-8">
-        {filteredHubs.map(( hub ) => (
-          <HubCardHome key={hub.hubId} hubs = {hub} />
+      <div className="mt-8">
+      {/* Swiper Container */}
+      <Swiper
+        spaceBetween={2}  // Space between slides
+        slidesPerView={6}  // Number of slides to show at once
+        loop={true}         // Enable looping
+        navigation={true}  // Enable navigation arrows
+        modules={[ Navigation ]}
+        breakpoints={{
+          1440: {
+            slidesPerView: 6,
+          },
+          1024: {
+            slidesPerView: 4,
+          },
+          768: {
+            slidesPerView: 2,
+          },
+          480: {
+            slidesPerView: 1,
+          },
+        }}  // Responsive breakpoints for different screen sizes
+      >
+        {filteredHubs.map((hub) => (
+          <SwiperSlide key={hub.hubId}>
+            <HubCardHome hubs={hub} />
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
+    </div>
       <div className="flex justify-center mt-8">
       <Link to="#" className="inline-flex items-center text-lg text-earthy-brown hover:underline">
       View all
