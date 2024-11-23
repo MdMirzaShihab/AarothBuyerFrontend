@@ -183,7 +183,7 @@ const productCatagories =  [
         {
           district: "Cox's Bazar",
           hubs: [
-            { hubId: 10, name: "Cox's Bazar Sadar", location: "Cox's Bazar, Chattogram" },
+            { hubId: 10, name: "Cox's Bazar", location: "Cox's Bazar, Chattogram" },
             { hubId: 11, name: "Teknaf", location: "Cox's Bazar, Chattogram" },
           ],
         },
