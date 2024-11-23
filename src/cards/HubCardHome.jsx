@@ -3,7 +3,7 @@ import { HubImg } from '../assets';
 
 const HubCardHome = ({ hubs }) => {
     return (
-      <div className={`flex flex-col items-center group border p-4 w-56 group bg-gradient-to-b from-transparent via-transparent to-earthy-tan relative rounded-xl bg-clip-border  text-gray-700 shadow-md h-full transition-transform duration-700 transform hover:-translate-y-3`}>
+      <div className={`flex flex-col items-center group border p-4 w-80 group bg-gradient-to-b from-transparent via-transparent to-earthy-tan relative rounded-xl bg-clip-border  text-gray-700 shadow-md h-full transition-transform duration-700 transform hover:-translate-y-3`}>
                   <img
               src={ HubImg }
               alt={`${hubs.name}'s picture`}
