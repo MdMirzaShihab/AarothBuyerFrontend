@@ -118,7 +118,7 @@ const AllProductsPage = () => {
       {/* Product List Section */}
       <div className="lg:w-3/4 w-full p-4">
         <h2 className="text-2xl font-bold mb-6">Available Products</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex mx-auto pb-10 px-3 sm:px-0 pt-[50px] max-w-7xl justify-center flex-wrap gap-5">
           {sortedProducts.map((product) => (
             <ProductCard key={product.id} product={product} /> // Render each product using the ProductCard component
           ))}
