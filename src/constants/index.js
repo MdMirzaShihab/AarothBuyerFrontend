@@ -6,49 +6,36 @@ const productCatagories =  [
     "id": 1,
     "name": "Tomato",
     "image": TomatoImg,
-    "location": "Rajshahi",
-    "price": 2.5
   },
   {
     "id": 2,
     "name": "Potato",
     "image": PotatoImg,
-    "Link": "/potatoes",
   },
   {
     "id": 3,
     "name": "Onion",
     "image": OnionImg,
-    "location": "Rajbari",
-    "price": 1.5
   },
   {
     "id": 4,
     "name": "Rice",
     "image": RiceImg,
-    "location": "Rajbari",
-    "price": 1.5
   },
   {
     "id": 5,
     "name": "Chili",
     "image": ChiliImg,
-    "location": "Rajbari",
-    "price": 1.5
   },
   {
     "id": 6,
     "name": "Garlic",
     "image": GarlicImg,
-    "location": "Rajbari",
-    "price": 1.5
   },
   {
     "id": 7,
     "name": "Daal",
     "image": DaalImg,
-    "location": "Rajbari",
-    "price": 1.5
   }
 ]
     
@@ -156,10 +143,161 @@ const productCatagories =  [
   ]
 
   const hubs = [
-    { hubId: 1, name: "Baliakandi", location: "Rajbari, Dhaka" },
-    { hubId: 2, name: "Joydevpur", location: "Gazipur, Dhaka" },
-    { hubId: 3, name: "Nandail", location: "Nandail, Mymensingh" },
+    {
+      division: "Dhaka",
+      districts: [
+        {
+          district: "Rajbari",
+          hubs: [
+            { hubId: 1, name: "Baliakandi", location: "Rajbari, Dhaka" },
+            { hubId: 2, name: "Goalondo", location: "Rajbari, Dhaka" },
+            { hubId: 3, name: "Sadar", location: "Rajbari, Dhaka" },
+          ],
+        },
+        {
+          district: "Gazipur",
+          hubs: [
+            { hubId: 4, name: "Joydevpur", location: "Gazipur, Dhaka" },
+            { hubId: 5, name: "Kaliakair", location: "Gazipur, Dhaka" },
+          ],
+        },
+        {
+          district: "Narayanganj",
+          hubs: [
+            { hubId: 6, name: "Sadar", location: "Narayanganj, Dhaka" },
+            { hubId: 7, name: "Bandhan", location: "Narayanganj, Dhaka" },
+          ],
+        },
+      ],
+    },
+    {
+      division: "Chattogram",
+      districts: [
+        {
+          district: "Chittagong",
+          hubs: [
+            { hubId: 8, name: "Patenga", location: "Chittagong, Chattogram" },
+            { hubId: 9, name: "Foy's Lake", location: "Chittagong, Chattogram" },
+          ],
+        },
+        {
+          district: "Cox's Bazar",
+          hubs: [
+            { hubId: 10, name: "Cox's Bazar Sadar", location: "Cox's Bazar, Chattogram" },
+            { hubId: 11, name: "Teknaf", location: "Cox's Bazar, Chattogram" },
+          ],
+        },
+      ],
+    },
+    {
+      division: "Khulna",
+      districts: [
+        {
+          district: "Khulna",
+          hubs: [
+            { hubId: 12, name: "Sadar", location: "Khulna, Khulna" },
+            { hubId: 13, name: "Dighalia", location: "Khulna, Khulna" },
+          ],
+        },
+        {
+          district: "Jessore",
+          hubs: [
+            { hubId: 14, name: "Sadar", location: "Jessore, Khulna" },
+            { hubId: 15, name: "Chaugachha", location: "Jessore, Khulna" },
+          ],
+        },
+      ],
+    },
+    {
+      division: "Rajshahi",
+      districts: [
+        {
+          district: "Rajshahi",
+          hubs: [
+            { hubId: 16, name: "Sadar", location: "Rajshahi, Rajshahi" },
+            { hubId: 17, name: "Mohanpur", location: "Rajshahi, Rajshahi" },
+          ],
+        },
+        {
+          district: "Bogura",
+          hubs: [
+            { hubId: 18, name: "Sadar", location: "Bogura, Rajshahi" },
+            { hubId: 19, name: "Shibganj", location: "Bogura, Rajshahi" },
+          ],
+        },
+      ],
+    },
+    {
+      division: "Barishal",
+      districts: [
+        {
+          district: "Barishal",
+          hubs: [
+            { hubId: 20, name: "Sadar", location: "Barishal, Barishal" },
+            { hubId: 21, name: "Muladi", location: "Barishal, Barishal" },
+          ],
+        },
+      ],
+    },
+    {
+      division: "Sylhet",
+      districts: [
+        {
+          district: "Sylhet",
+          hubs: [
+            { hubId: 22, name: "Sadar", location: "Sylhet, Sylhet" },
+            { hubId: 23, name: "Moulvibazar", location: "Sylhet, Sylhet" },
+          ],
+        },
+        {
+          district: "Moulvibazar",
+          hubs: [
+            { hubId: 24, name: "Sadar", location: "Moulvibazar, Sylhet" },
+            { hubId: 25, name: "Kulaura", location: "Moulvibazar, Sylhet" },
+          ],
+        },
+      ],
+    },
+    {
+      division: "Mymensingh",
+      districts: [
+        {
+          district: "Mymensingh",
+          hubs: [
+            { hubId: 26, name: "Sadar", location: "Mymensingh, Mymensingh" },
+            { hubId: 27, name: "Trishal", location: "Mymensingh, Mymensingh" },
+          ],
+        },
+        {
+          district: "Jamalpur",
+          hubs: [
+            { hubId: 28, name: "Sadar", location: "Jamalpur, Mymensingh" },
+            { hubId: 29, name: "Baksiganj", location: "Jamalpur, Mymensingh" },
+          ],
+        },
+      ],
+    },
+    {
+      division: "Rangpur",
+      districts: [
+        {
+          district: "Rangpur",
+          hubs: [
+            { hubId: 30, name: "Sadar", location: "Rangpur, Rangpur" },
+            { hubId: 31, name: "Kurigram", location: "Rangpur, Rangpur" },
+          ],
+        },
+        {
+          district: "Dinajpur",
+          hubs: [
+            { hubId: 32, name: "Sadar", location: "Dinajpur, Rangpur" },
+            { hubId: 33, name: "Birampur", location: "Dinajpur, Rangpur" },
+          ],
+        },
+      ],
+    },
   ];
+  
 
 
   export { products, hubs, productCatagories };

@@ -1,4 +1,4 @@
-import React, { useState } from "react"; // Import the ProductCard component
+import React, { useState } from "react";
 import { products } from "../constants";
 import ProductCard from "../cards/ProductCard";
 import Select from "react-select"; 
