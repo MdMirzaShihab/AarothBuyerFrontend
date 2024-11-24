@@ -100,7 +100,7 @@ const HubsSectionHome = () => {
           onChange={handleDivisionChange}
           isClearable
           placeholder="Select Division"
-          className="w-56 z-10"
+          className="w-30 md:w-56 z-10"
         />
 
         {/* District Select */}
@@ -110,7 +110,7 @@ const HubsSectionHome = () => {
           onChange={handleDistrictChange}
           isClearable
           placeholder="Select District"
-          className="w-56 z-10"
+          className="w-30 md:w-56 z-10"
           isDisabled={!selectedDivision} // Disable District select until Division is selected
         />
         </div>
@@ -134,6 +134,9 @@ const HubsSectionHome = () => {
           },
           480: {
             slidesPerView: 2,
+          },
+          320: {
+            slidesPerView: 1,
           },
         }}  // Responsive breakpoints for different screen sizes
       >

@@ -33,6 +33,9 @@ const CatagoriesSectionHome = () => {
           480: {
             slidesPerView: 3,
           },
+          320: {
+            slidesPerView: 2,
+          },
         }}  // Responsive breakpoints for different screen sizes
       >
           {productCatagories.map((catagory) => (
