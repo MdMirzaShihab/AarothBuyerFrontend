@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 import Select from "react-select";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css'; // Import core Swiper styles
-import 'swiper/css/pagination'; // Import pagination styles (if you use pagination)
 import 'swiper/css/navigation'; // Import navigation styles (if you use navigation)
 import { Navigation } from "swiper/modules";
 
@@ -80,9 +79,10 @@ const HubsSectionHome = () => {
   return (
     <section className="pb-10 pt-4 px-2 bg-earthy-beige">
       <div className="flex flex-wrap justify-center items-center gap-2 mt-2">
-      <h2 className="text-2xl font-bold text-earthy-brown">Hubs</h2>
        {/* Search Bar */}
+       <div className="flex flex-col md:flex-row justify-center items-center gap-2">
        <div className="flex justify-center items-center gap-2">
+       <h2 className="text-2xl font-bold text-earthy-brown">Hubs</h2>
         <input
           type="text"
           placeholder="Search by name, location, or district"
@@ -90,6 +90,8 @@ const HubsSectionHome = () => {
           onChange={handleSearch}
           className="p-2 border rounded-md"
         />
+        </div>
+        <div className="flex justify-center items-center gap-2">
 
                 {/* Division Select */}
           <Select
@@ -111,17 +113,17 @@ const HubsSectionHome = () => {
           className="w-56 z-10"
           isDisabled={!selectedDivision} // Disable District select until Division is selected
         />
+        </div>
         
       </div>
       </div>
       
-      <div className="mt-8">
+      <div className="mt-8 ">
       {/* Swiper Container */}
       <Swiper
-        spaceBetween={2}  // Space between slides
-        slidesPerView={6}  // Number of slides to show at once
         loop={true}         // Enable looping
         navigation={true}  // Enable navigation arrows
+        centeredSlides={true}
         modules={[ Navigation ]}
         breakpoints={{
           1440: {
@@ -130,11 +132,8 @@ const HubsSectionHome = () => {
           1024: {
             slidesPerView: 4,
           },
-          768: {
-            slidesPerView: 2,
-          },
           480: {
-            slidesPerView: 1,
+            slidesPerView: 2,
           },
         }}  // Responsive breakpoints for different screen sizes
       >
