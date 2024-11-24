@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
       <p className="text-sm text-gray-500">Location: {product.location}</p>
       <p className="text-sm">Min Quantity: {product.minQuantity.toLocaleString()} kg</p>
       <p className="text-sm">Available: {product.maxQuantity.toLocaleString()} kg</p>
-      <p className="text-lg font-bold text-green-600">Price: ৳{product.price.toLocaleString('bn-BD')}/kg</p>
+      {/* <p className="text-lg font-bold text-green-600">Price: ৳{product.price.toLocaleString('bn-BD')}/kg</p> */}
     </div>
   );
 };
