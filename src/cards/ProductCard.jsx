@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, catagory }) => {
   return (
     <div className="border flex w-72 flex-col rounded-xl p-4 bg-white shadow-md">
       <img
@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
         className="h-full object-cover mb-4"
       />
       <h3 className="font-semibold text-lg">{product.name}</h3>
-      <p className="text-sm text-gray-500">Category: {product.catagory}</p>
+      <p className="text-sm text-gray-500">Category: {catagory.name}</p>
       <p className="text-sm text-gray-500">Location: {product.location}</p>
       <p className="text-sm">
         Min Quantity: {product.minQuantity.toLocaleString()} kg

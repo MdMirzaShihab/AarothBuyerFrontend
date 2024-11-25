@@ -10,67 +10,84 @@ import { Navigation } from "swiper/modules";
 
 const HubsSectionHome = () => {
   // State to manage the search term
-  const [searchTerm, setSearchTerm] = useState("");
   const [selectedDivision, setSelectedDivision] = useState(null);
   const [selectedDistrict, setSelectedDistrict] = useState(null);
-  const [filteredHubs, setFilteredHubs] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredHubs, setFilteredHubs] = useState(hubs);
 
-  const allHubs = hubs.flatMap((division) =>
-    division.districts.flatMap((district) =>
-      district.hubs.map((hub) => ({
-        ...hub,
-        district: district.district,
-        division: division.division,
-      }))
-    )
-  );
+  // Get unique divisions and districts
+  const divisions = Array.from(new Set(hubs.map((hub) => hub.division)));
+  const districts = Array.from(new Set(hubs.map((hub) => hub.district)));
 
-  // Options for Division select dropdown
-  const divisionOptions = hubs.map((division) => ({
-    value: division.division,
-    label: division.division,
-  }));
+  // Filter hubs based on selected filters
+  const filterHubs = () => {
+    let filtered = hubs;
 
-  // Options for District select dropdown, based on selected Division
-  const getDistrictOptions = () => {
-    if (!selectedDivision) return [];
-    const division = hubs.find((div) => div.division === selectedDivision);
-    const districtOptions =
-      division?.districts.map((district) => ({
-        value: district.district,
-        label: district.district,
-      })) || [];
-    return districtOptions;
+    // Filter by division
+    if (selectedDivision) {
+      filtered = filtered.filter((hub) => hub.division === selectedDivision);
+    }
+
+    // Filter by district
+    if (selectedDistrict) {
+      filtered = filtered.filter((hub) => hub.district === selectedDistrict);
+    }
+
+    // Filter by search query (location, division, or district)
+    if (searchQuery) {
+      filtered = filtered.filter(
+        (hub) =>
+          hub.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          hub.division.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          hub.district.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          hub.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+
+    setFilteredHubs(filtered);
   };
 
   // Handle search input change
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
   };
 
-  // Handle division select change
+  // Handle division change
   const handleDivisionChange = (selectedOption) => {
-    setSelectedDivision(selectedOption?.value || null);
+    setSelectedDivision(selectedOption ? selectedOption.value : null);
     setSelectedDistrict(null); // Reset district when division changes
   };
 
-  // Handle district select change
+  // Handle district change
   const handleDistrictChange = (selectedOption) => {
-    setSelectedDistrict(selectedOption?.value || null);
+    setSelectedDistrict(selectedOption ? selectedOption.value : null);
   };
 
-  // Filter hubs based on search term, division, and district
+  // Apply filtering whenever filters or search query changes
   useEffect(() => {
-    const filtered = allHubs.filter(
-      (hub) =>
-        (hub.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          hub.location.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          hub.district.toLowerCase().includes(searchTerm.toLowerCase())) &&
-        (!selectedDivision || hub.division === selectedDivision) &&
-        (!selectedDistrict || hub.district === selectedDistrict)
-    );
-    setFilteredHubs(filtered);
-  }, [searchTerm, selectedDivision, selectedDistrict]);
+    filterHubs();
+  }, [selectedDivision, selectedDistrict, searchQuery]);
+
+  // Division and district options for the select inputs
+  const divisionOptions = divisions.map((division) => ({
+    value: division,
+    label: division,
+  }));
+
+  const districtOptions = districts
+    .filter((district) => {
+      if (selectedDivision) {
+        // Only show districts related to the selected division
+        return hubs.some(
+          (hub) => hub.district === district && hub.division === selectedDivision
+        );
+      }
+      return true;
+    })
+    .map((district) => ({
+      value: district,
+      label: district,
+    }));
 
   return (
     <section className="pb-10 pt-4 px-2 bg-earthy-beige">
@@ -82,8 +99,8 @@ const HubsSectionHome = () => {
             <input
               type="text"
               placeholder="Search by name, location, or district"
-              value={searchTerm}
-              onChange={handleSearch}
+              value={searchQuery}
+              onChange={handleSearchChange}
               className="p-2 border rounded-md"
             />
           </div>
@@ -91,9 +108,7 @@ const HubsSectionHome = () => {
             {/* Division Select */}
             <Select
               options={divisionOptions}
-              value={divisionOptions.find(
-                (option) => option.value === selectedDivision
-              )}
+              value={divisionOptions.find((option) => option.value === selectedDivision)}
               onChange={handleDivisionChange}
               isClearable
               placeholder="Select Division"
@@ -102,10 +117,8 @@ const HubsSectionHome = () => {
 
             {/* District Select */}
             <Select
-              options={getDistrictOptions()}
-              value={getDistrictOptions().find(
-                (option) => option.value === selectedDistrict
-              )}
+              options={districtOptions}
+              value={districtOptions.find((option) => option.value === selectedDistrict)}
               onChange={handleDistrictChange}
               isClearable
               placeholder="Select District"
@@ -139,7 +152,7 @@ const HubsSectionHome = () => {
           }} // Responsive breakpoints for different screen sizes
         >
           {filteredHubs.map((hub) => (
-            <SwiperSlide key={hub.hubId}>
+            <SwiperSlide key={hub.id}>
               <HubCardHome hubs={hub} />
             </SwiperSlide>
           ))}
