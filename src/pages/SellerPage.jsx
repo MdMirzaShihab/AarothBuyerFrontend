@@ -1,5 +1,4 @@
 const SellerPage = () => {
-
   return (
     <div className="py-16 px-8 bg-earthy-beige">
       <h2 className="text-2xl font-bold text-earthy-brown">Seller Dashboard</h2>
@@ -26,6 +25,5 @@ const SellerPage = () => {
     </div>
   );
 };
-
 
 export default SellerPage;

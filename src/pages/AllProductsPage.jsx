@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { products } from "../constants";
 import ProductCard from "../cards/ProductCard";
-import Select from "react-select"; 
+import Select from "react-select";
 
 const AllProductsPage = () => {
   const [searchParams, setSearchParams] = useState({
@@ -12,11 +12,17 @@ const AllProductsPage = () => {
   });
 
   const categories = [
-    "Tomato", "Potato", "Onion", "Rice", "Chili", "Garlic", "Daal"
+    "Tomato",
+    "Potato",
+    "Onion",
+    "Rice",
+    "Chili",
+    "Garlic",
+    "Daal",
   ];
 
-    // Format categories for react-select
-    const categoryOptions = categories.map((cat) => ({ value: cat, label: cat }));
+  // Format categories for react-select
+  const categoryOptions = categories.map((cat) => ({ value: cat, label: cat }));
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,20 +32,23 @@ const AllProductsPage = () => {
     }));
   };
 
-    // Handle category selection change
-    const handleCategoryChange = (selectedOption) => {
-      setSearchParams((prev) => ({
-        ...prev,
-        category: selectedOption ? selectedOption.value : "",
-      }));
-    };
+  // Handle category selection change
+  const handleCategoryChange = (selectedOption) => {
+    setSearchParams((prev) => ({
+      ...prev,
+      category: selectedOption ? selectedOption.value : "",
+    }));
+  };
 
   // Filter products based on the search parameters
   const filteredProducts = products.filter((product) => {
     return (
-      (searchParams.location === "" || product.location.includes(searchParams.location)) &&
-      (product.price >= searchParams.priceMin && product.price <= searchParams.priceMax) &&
-      (searchParams.category === "" || product.catagory.includes(searchParams.category))
+      (searchParams.location === "" ||
+        product.location.includes(searchParams.location)) &&
+      product.price >= searchParams.priceMin &&
+      product.price <= searchParams.priceMax &&
+      (searchParams.category === "" ||
+        product.catagory.includes(searchParams.category))
     );
   });
 
@@ -93,7 +102,9 @@ const AllProductsPage = () => {
           <label className="block font-semibold">Category</label>
           <Select
             options={categoryOptions}
-            value={categoryOptions.find(option => option.value === searchParams.category)}
+            value={categoryOptions.find(
+              (option) => option.value === searchParams.category
+            )}
             onChange={handleCategoryChange}
             isClearable
             className="w-full"
@@ -107,8 +118,7 @@ const AllProductsPage = () => {
           <select
             name="sort"
             onChange={handleChange}
-            className="w-full p-2 mt-1 border border-gray-300 rounded"
-          >
+            className="w-full p-2 mt-1 border border-gray-300 rounded">
             <option value="asc">Price (Low to High)</option>
             <option value="desc">Price (High to Low)</option>
           </select>
@@ -128,4 +138,4 @@ const AllProductsPage = () => {
   );
 };
 
-export default AllProductsPage
+export default AllProductsPage;

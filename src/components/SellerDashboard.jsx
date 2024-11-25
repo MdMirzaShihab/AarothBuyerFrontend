@@ -24,8 +24,6 @@ const SellerDashboard = () => {
       </form>
     </section>
   );
-}; 
-
+};
 
 export default SellerDashboard;
-  

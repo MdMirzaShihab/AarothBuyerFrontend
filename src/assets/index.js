@@ -1,4 +1,3 @@
-
 //Catagories
 import OnionImg from "./Catagories/Onion edt-min.png";
 import PotatoImg from "./Catagories/Potato edt-min.png";
@@ -24,4 +23,24 @@ import Logo from "./Logo.png";
 import Leaves from "./Leaves.png";
 import HubImg from "./HubImg.png";
 
-export { OnionImg, PotatoImg, TomatoImg, RiceImg, ChiliImg, GarlicImg, DaalImg, Logo, Leaves, HubImg, FreshChiniguraChal, FreshRedSmallOnions, FreshShamratOnion, FreshThaiTomatoes, GreenDeshiChili, LargeFreshGarlic, RedLargeOnions, RoundLargePotatoes, SmallPotatos };
+export {
+  OnionImg,
+  PotatoImg,
+  TomatoImg,
+  RiceImg,
+  ChiliImg,
+  GarlicImg,
+  DaalImg,
+  Logo,
+  Leaves,
+  HubImg,
+  FreshChiniguraChal,
+  FreshRedSmallOnions,
+  FreshShamratOnion,
+  FreshThaiTomatoes,
+  GreenDeshiChili,
+  LargeFreshGarlic,
+  RedLargeOnions,
+  RoundLargePotatoes,
+  SmallPotatos,
+};
