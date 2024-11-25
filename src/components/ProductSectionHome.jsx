@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ProductCard from "../cards/ProductCard";
-import { productCatagories, products } from "../constants";
+import { hubs, productCatagories, products } from "../constants";
 
 const ProductSectionHome = () => {
   return (
@@ -12,8 +12,9 @@ const ProductSectionHome = () => {
       <div className="flex flex-wrap justify-center gap-2 mt-2">
         {products.map((product) => {
           const catagory = productCatagories.find((cat) => cat.id === product.catagory);
+          const hub = hubs.find((h) => h.id === product.hub);
           return (
-            <ProductCard key={product.id} product={product} catagory={catagory} />
+            <ProductCard key={product.id} product={product} catagory={catagory} hub={hub} />
           )}
           
         )}

@@ -1,59 +1,59 @@
-import React, { useState } from "react";
-import { products } from "../constants";
+import React, { useEffect, useState } from "react";
+import { hubs, productCatagories, products } from "../constants";
 import ProductCard from "../cards/ProductCard";
 import Select from "react-select";
 
 const AllProductsPage = () => {
-  const [searchParams, setSearchParams] = useState({
-    location: "",
-    priceMin: 0,
-    priceMax: 1000,
-    category: "",
-  });
+  const [filteredProducts, setFilteredProducts] = useState(products);
+  const [locationFilter, setLocationFilter] = useState("");
+  const [priceRange, setPriceRange] = useState({ min: "", max: "" });
+  const [categoryFilter, setCategoryFilter] = useState(null);
+  const [sortOrder, setSortOrder] = useState("asc");
 
-  const categories = [
-    "Tomato",
-    "Potato",
-    "Onion",
-    "Rice",
-    "Chili",
-    "Garlic",
-    "Daal",
-  ];
+  useEffect(() => {
+    applyFiltersAndSorting();
+  }, [locationFilter, priceRange, categoryFilter, sortOrder]);
 
-  // Format categories for react-select
-  const categoryOptions = categories.map((cat) => ({ value: cat, label: cat }));
+  const applyFiltersAndSorting = () => {
+    let tempProducts = [...products];
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setSearchParams((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    // Location Filter
+    if (locationFilter) {
+      tempProducts = tempProducts.filter((product) =>
+        hubs.find((hub) => hub.id === product.hub && hub.location.toLowerCase().includes(locationFilter.toLowerCase()))
+      );
+    }
+
+    // Price Range Filter
+    if (priceRange.min || priceRange.max) {
+      tempProducts = tempProducts.filter(
+        (product) =>
+          (priceRange.min ? product.price >= priceRange.min : true) &&
+          (priceRange.max ? product.price <= priceRange.max : true)
+      );
+    }
+
+    // Category Filter
+    if (categoryFilter) {
+      tempProducts = tempProducts.filter((product) => product.catagory === categoryFilter.id);
+    }
+
+    // Sorting by Price
+    tempProducts.sort((a, b) => {
+      if (sortOrder === "asc") {
+        return a.price - b.price;
+      } else {
+        return b.price - a.price;
+      }
+    });
+
+    setFilteredProducts(tempProducts);
   };
 
-  // Handle category selection change
-  const handleCategoryChange = (selectedOption) => {
-    setSearchParams((prev) => ({
-      ...prev,
-      category: selectedOption ? selectedOption.value : "",
-    }));
-  };
-
-  // Filter products based on the search parameters
-  const filteredProducts = products.filter((product) => {
-    return (
-      (searchParams.location === "" ||
-        product.location.includes(searchParams.location)) &&
-      product.price >= searchParams.priceMin &&
-      product.price <= searchParams.priceMax &&
-      (searchParams.category === "" ||
-        product.catagory.includes(searchParams.category))
-    );
-  });
-
-  // Sort products based on price (ascending or descending)
-  const sortedProducts = filteredProducts.sort((a, b) => a.price - b.price);
+  const categoryOptions = productCatagories.map((cat) => ({
+    value: cat.id,
+    label: cat.name,
+  }));
 
   return (
     <div className="flex flex-col lg:flex-row">
@@ -67,8 +67,8 @@ const AllProductsPage = () => {
           <input
             type="text"
             name="location"
-            value={searchParams.location}
-            onChange={handleChange}
+            value={locationFilter}
+            onChange={(e) => setLocationFilter(e.target.value)}
             className="w-full p-2 mt-1 border border-gray-300 rounded"
             placeholder="Search by location"
           />
@@ -81,16 +81,16 @@ const AllProductsPage = () => {
             <input
               type="number"
               name="priceMin"
-              value={searchParams.priceMin}
-              onChange={handleChange}
+              value={priceRange.min}
+              onChange={(e) => setPriceRange({ ...priceRange, min: e.target.value })}
               className="w-1/2 p-2 border border-gray-300 rounded"
               placeholder="Min"
             />
             <input
               type="number"
               name="priceMax"
-              value={searchParams.priceMax}
-              onChange={handleChange}
+              value={priceRange.max}
+              onChange={(e) => setPriceRange({ ...priceRange, max: e.target.value })}
               className="w-1/2 p-2 border border-gray-300 rounded"
               placeholder="Max"
             />
@@ -102,10 +102,8 @@ const AllProductsPage = () => {
           <label className="block font-semibold">Category</label>
           <Select
             options={categoryOptions}
-            value={categoryOptions.find(
-              (option) => option.value === searchParams.category
-            )}
-            onChange={handleCategoryChange}
+            value={categoryFilter}
+            onChange={(selectedOption) => setCategoryFilter(selectedOption)}
             isClearable
             className="w-full"
             placeholder="Select a category"
@@ -117,7 +115,8 @@ const AllProductsPage = () => {
           <label className="block font-semibold">Sort By</label>
           <select
             name="sort"
-            onChange={handleChange}
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
             className="w-full p-2 mt-1 border border-gray-300 rounded">
             <option value="asc">Price (Low to High)</option>
             <option value="desc">Price (High to Low)</option>
@@ -129,9 +128,14 @@ const AllProductsPage = () => {
       <div className="lg:w-3/4 w-full p-4">
         <h2 className="text-2xl font-bold mb-6">Available Products</h2>
         <div className="flex mx-auto pb-10 px-3 sm:px-0 pt-[50px] max-w-7xl justify-center flex-wrap gap-5">
-          {sortedProducts.map((product) => (
-            <ProductCard key={product.id} product={product} /> // Render each product using the ProductCard component
-          ))}
+          {filteredProducts.map((product) => {
+          const catagory = productCatagories.find((cat) => cat.id === product.catagory);
+          const hub = hubs.find((h) => h.id === product.hub);
+          return (
+            <ProductCard key={product.id} product={product} catagory={catagory} hub={hub}  /> // Render each product using the ProductCard component
+          )}
+          
+        )}
         </div>
       </div>
     </div>
