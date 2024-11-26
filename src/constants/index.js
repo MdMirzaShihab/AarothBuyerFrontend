@@ -17,6 +17,39 @@ import {
   TomatoImg,
 } from "../assets";
 
+const vendorProfiles = [
+  {
+    id: 1,
+    name: "Bengali Tomatoes",
+    Rating: 2,
+  },
+  {
+    id: 2,
+    name: "Sorafot Potatoes",
+    Rating: 1.5,
+  },
+  {
+    id: 3,
+    name: "Joarder Traders",
+    Rating: 5,
+  },
+  {
+    id: 4,
+    name: "Mina Rice Mills",
+    Rating: 4,
+  },
+  {
+    id: 5,
+    name: "Deshi Chilis",
+    Rating: 4.5,
+  },
+  {
+    id: 6,
+    name: "Vagolpur",
+    Rating: 2,
+  }
+];
+
 const productCatagories = [
   {
     id: 1,
@@ -66,6 +99,7 @@ const products = [
     hub: 17,
     price: 117,
     shipping: 3,
+    vendor: 1,
   },
   {
     id: 2,
@@ -77,6 +111,7 @@ const products = [
     hub: 19,
     price: 153,
     shipping: 3,
+    vendor: 2,
   },
   {
     id: 3,
@@ -88,6 +123,7 @@ const products = [
     hub: 1,
     price: 105,
     shipping: 2.5,
+    vendor: 3,
   },
   {
     id: 4,
@@ -99,6 +135,7 @@ const products = [
     hub: 27,
     price: 149,
     shipping: 2,
+    vendor: 4,
   },
   {
     id: 5,
@@ -110,6 +147,7 @@ const products = [
     hub: 13,
     price: 96,
     shipping: 1.5,
+    vendor: 5,
   },
   {
     id: 6,
@@ -121,6 +159,7 @@ const products = [
     hub: 2, 
     price: 141,
     shipping: 2,
+    vendor: 6,
   },
   {
     id: 7,
@@ -132,6 +171,7 @@ const products = [
     hub: 1, 
     price: 115,
     shipping: 2,
+    vendor: 3,
   },
   {
     id: 8,
@@ -143,6 +183,7 @@ const products = [
     hub: 18, 
     price: 112,
     shipping: 2,
+    vendor: 2,
   },
   {
     id: 9,
@@ -154,6 +195,7 @@ const products = [
     hub: 1,
     price: 105,
     shipping: 2,
+    vendor: 3,
   },
 ];
 
@@ -427,4 +469,4 @@ const hubs = [
 
 
 
-export { products, hubs, productCatagories };
+export { products, hubs, productCatagories, vendorProfiles };

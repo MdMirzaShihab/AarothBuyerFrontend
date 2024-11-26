@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import BuyerPage from "./pages/BuyerPage";
 import SellerPage from "./pages/SellerPage";
 import AllProducts from "./pages/AllProductsPage";
+import ProductDetails from "./pages/ProductDetails";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/buyer" element={<BuyerPage />} />
         <Route path="/seller" element={<SellerPage />} />
         <Route path="/products" element={<AllProducts />} />
+        <Route path="/products/:productId" element={<ProductDetails />} />
       </Routes>
     </Router>
   );

@@ -30,7 +30,7 @@ const Navbar = () => {
             <div className="relative">
               <button
                 onClick={toggleDropdown}
-                className="text-lg font-medium text-earthy-brown hover:text-earthy-beige hover:bg-earthy-yellow rounded p-2 transition duration-300 ease-in-out">
+                className="text-lg font-medium text-earthy-brown hover:text-earthy-yellow hover:bg-transparent rounded p-2 transition duration-300 ease-in-out">
                 Categories
               </button>
               {isDropdownOpen && (
@@ -121,7 +121,7 @@ const Navbar = () => {
             {/* Seller Button */}
             <Link
               to="/seller"
-              className="px-4 py-2 bg-earthy-tan text-earthy-brown rounded-full hover:text-forest transition duration-300 ease-in-out">
+              className="px-4 py-2 bg-earthy-tan text-earthy-brown rounded-full hover:bg-earthy-beige transition duration-300 ease-in-out">
               I am a Seller
             </Link>
 
@@ -137,7 +137,7 @@ const Navbar = () => {
             </Link>
 
             {/* Sign In/Sign Out Button */}
-            <button className="text-lg font-bold hover:text-forest text-earthy-brown hover:bg-transparent transition duration-300 ease-in-out">
+            <button className="text-lg font-bold hover:text-earthy-yellow text-earthy-brown hover:bg-transparent transition duration-300 ease-in-out">
               Sign In
             </button>
           </div>
@@ -145,7 +145,7 @@ const Navbar = () => {
           {/* Mobile Menu Toggle */}
           <button onClick={toggleMenu} className="md:hidden text-earthy-brown">
             <svg
-              className="w-6 h-6"
+              className="w-6 h-6 m-1 rounded transition duration-300 ease-in-out"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -163,7 +163,7 @@ const Navbar = () => {
             </Link>
             <Link
               to="/seller"
-              className="px-4 py-2 bg-earthy-yellow text-earthy-brown rounded-full hover:bg-earthy-tan">
+              className="px-4 py-2 bg-earthy-tan text-earthy-brown rounded-full hover:bg-earthy-beige">
               I am a Seller
             </Link>
             <Link to="/cart" className="text-lg text-earthy-brown">

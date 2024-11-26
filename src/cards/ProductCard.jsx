@@ -1,7 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ product, catagory, hub }) => {
   return (
+    <Link
+      to={`/products/${product.id}`}
+      className="no-underline">
     <div className="border flex w-72 flex-col rounded-xl p-4 bg-white shadow-md">
       <img
         src={product.image}
@@ -17,8 +21,9 @@ const ProductCard = ({ product, catagory, hub }) => {
       <p className="text-sm">
         Available: {product.maxQuantity.toLocaleString()} kg
       </p>
-      {/* <p className="text-lg font-bold text-green-600">Price: ৳{product.price.toLocaleString('bn-BD')}/kg</p> */}
+      <p className="text-lg font-bold text-green-600">Price: ৳{product.price.toLocaleString('bn-BD')}/kg</p>
     </div>
+    </Link>
   );
 };
 
