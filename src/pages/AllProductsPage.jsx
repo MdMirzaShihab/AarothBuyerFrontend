@@ -9,19 +9,51 @@ const AllProductsPage = () => {
   const [priceRange, setPriceRange] = useState({ min: "", max: "" });
   const [categoryFilter, setCategoryFilter] = useState(null);
   const [sortOrder, setSortOrder] = useState("asc");
+  const [selectedDivision, setSelectedDivision] = useState(null);
+  const [selectedDistrict, setSelectedDistrict] = useState(null);
+  const [selectedSubdistrict, setSelectedSubdistrict] = useState(null);
 
   useEffect(() => {
     applyFiltersAndSorting();
-  }, [locationFilter, priceRange, categoryFilter, sortOrder]);
+  }, [locationFilter, priceRange, categoryFilter, sortOrder, selectedDivision, selectedDistrict, selectedSubdistrict]);
 
   const applyFiltersAndSorting = () => {
     let tempProducts = [...products];
 
     // Location Filter
     if (locationFilter) {
-      tempProducts = tempProducts.filter((product) =>
-        hubs.find((hub) => hub.id === product.hub && hub.location.toLowerCase().includes(locationFilter.toLowerCase()))
-      );
+      tempProducts = tempProducts.filter((product) => {
+        // Find the hub related to the product
+        const hub = hubs.find((hub) => hub.id === product.hub);
+        // Check if any of the fields match the locationFilter (case insensitive)
+        const matchLocation = hub?.location.toLowerCase().includes(locationFilter.toLowerCase());
+        const matchDistrict = hub?.district?.toLowerCase().includes(locationFilter.toLowerCase());
+        const matchSubdistrict = hub?.subdistrict?.toLowerCase().includes(locationFilter.toLowerCase());
+        const matchProductName = product.name.toLowerCase().includes(locationFilter.toLowerCase());
+
+        return matchLocation || matchDistrict || matchSubdistrict || matchProductName;
+      });
+    }
+
+    if (selectedDivision) {
+      tempProducts = tempProducts.filter((product) => {
+        const hub = hubs.find((hub) => hub.id === product.hub);
+        return hub?.division === selectedDivision.value;
+      });
+    }
+
+    if (selectedDistrict) {
+      tempProducts = tempProducts.filter((product) => {
+        const hub = hubs.find((hub) => hub.id === product.hub);
+        return hub?.district === selectedDistrict.value;
+      });
+    }
+
+    if (selectedSubdistrict) {
+      tempProducts = tempProducts.filter((product) => {
+        const hub = hubs.find((hub) => hub.id === product.hub);
+        return hub?.subdistrict === selectedSubdistrict.value;
+      });
     }
 
     // Price Range Filter
@@ -35,7 +67,7 @@ const AllProductsPage = () => {
 
     // Category Filter
     if (categoryFilter) {
-      tempProducts = tempProducts.filter((product) => product.catagory === categoryFilter.id);
+      tempProducts = tempProducts.filter((product) => product.catagory === categoryFilter.value);
     }
 
     // Sorting by Price
@@ -55,6 +87,38 @@ const AllProductsPage = () => {
     label: cat.name,
   }));
 
+    // Options for Division, District, and Subdistrict (assuming these are available from `hubs` data)
+    const divisionOptions = [...new Set(hubs.map((hub) => hub.division))].map((division) => ({
+      value: division,
+      label: division,
+    }));
+  
+    const districtOptions = selectedDivision
+      ? [...new Set(hubs.filter((hub) => hub.division === selectedDivision.value).map((hub) => hub.district))]
+          .map((district) => ({ value: district, label: district }))
+      : [];
+  
+    const subdistrictOptions = selectedDistrict
+      ? [...new Set(hubs.filter((hub) => hub.district === selectedDistrict.value).map((hub) => hub.subdistrict))]
+          .map((subdistrict) => ({ value: subdistrict, label: subdistrict }))
+      : [];
+  
+    // Handlers for Division, District, and Subdistrict selects
+    const handleDivisionChange = (selectedOption) => {
+      setSelectedDivision(selectedOption);
+      setSelectedDistrict(null); // Reset district and subdistrict when division changes
+      setSelectedSubdistrict(null);
+    };
+  
+    const handleDistrictChange = (selectedOption) => {
+      setSelectedDistrict(selectedOption);
+      setSelectedSubdistrict(null); // Reset subdistrict when district changes
+    };
+  
+    const handleSubdistrictChange = (selectedOption) => {
+      setSelectedSubdistrict(selectedOption);
+    };
+
   return (
     <div className="flex flex-col lg:flex-row">
       {/* Sort and Filter Sidebar (mobile becomes top bar) */}
@@ -63,7 +127,7 @@ const AllProductsPage = () => {
 
         {/* Location Filter */}
         <div className="mb-4">
-          <label className="block font-semibold">Location</label>
+          <label className="block font-semibold">Search</label>
           <input
             type="text"
             name="location"
@@ -71,6 +135,41 @@ const AllProductsPage = () => {
             onChange={(e) => setLocationFilter(e.target.value)}
             className="w-full p-2 mt-1 border border-gray-300 rounded"
             placeholder="Search by location"
+          />
+        </div>
+                {/* Division, District, and Subdistrict Selects */}
+                <div className="flex flex-col justify-center items-center gap-2 mb-4">
+                <label className="block font-semibold">Location</label>
+          {/* Division Select */}
+          <Select
+            options={divisionOptions}
+            value={divisionOptions.find((option) => option.value === selectedDivision?.value)}
+            onChange={handleDivisionChange}
+            className="w-30 md:w-56"
+            isClearable
+            placeholder="Select Division"
+          />
+
+          {/* District Select */}
+          <Select
+            options={districtOptions}
+            value={districtOptions.find((option) => option.value === selectedDistrict?.value)}
+            onChange={handleDistrictChange}
+            className="w-30 md:w-56"
+            isClearable
+            placeholder="Select District"
+            isDisabled={!selectedDivision} // Disable District select until Division is selected
+          />
+
+          {/* Subdistrict Select */}
+          <Select
+            options={subdistrictOptions}
+            value={subdistrictOptions.find((option) => option.value === selectedSubdistrict?.value)}
+            onChange={handleSubdistrictChange}
+            className="w-30 md:w-56"
+            isClearable
+            placeholder="Select Subdistrict"
+            isDisabled={!selectedDistrict} // Disable Subdistrict select until District is selected
           />
         </div>
 
