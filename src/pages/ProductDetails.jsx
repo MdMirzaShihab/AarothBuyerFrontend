@@ -124,7 +124,7 @@ const ProductDetails = () => {
               </div>
               <div className="flex justify-between text-sm mt-1">
                 <span>{product.sold}kg sold</span>
-                <span>{remainingQuantity}kg available</span>
+                <span>{product.maxQuantity}kg capasity</span>
               </div>
             </div>
 
