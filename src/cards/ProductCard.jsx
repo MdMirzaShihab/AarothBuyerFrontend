@@ -6,22 +6,25 @@ const ProductCard = ({ product, catagory, hub }) => {
     <Link
       to={`/products/${product.id}`}
       className="no-underline">
-    <div className="border flex w-72 flex-col rounded-xl p-4 bg-white shadow-md">
-      <img
-        src={product.image}
-        alt={product.name}
-        className="h-full object-cover mb-4"
-      />
-      <h3 className="font-semibold text-lg">{product.name}</h3>
-      <p className="text-sm text-gray-500">Category: {catagory.name}</p>
-      <p className="text-sm text-gray-500">Hub: {hub.name}, {hub.district}</p>
-      <p className="text-sm">
+    <div className="flex flex-col w-72 rounded-xl p-4 m-2 bg-white shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+    <div className="mb-4 relative">
+          <img
+            src={product.image[0] || "/default-image.jpg"}  // Handle missing images
+            alt={product.name}
+            className="w-full h-48 object-cover rounded-lg"
+          />
+        </div>
+
+        <h3 className="font-semibold text-lg text-gray-800">{product.name}</h3>
+      <p className="text-sm text-gray-600">Category: {catagory.name}</p>
+      <p className="text-sm text-gray-600">Hub: {hub.name}, {hub.district}</p>
+      <p className="text-sm text-gray-700">
         Min Quantity: {product.minQuantity.toLocaleString()} kg
       </p>
-      <p className="text-sm">
+      <p className="text-sm text-gray-700">
         Available: {product.maxQuantity.toLocaleString()} kg
       </p>
-      <p className="text-lg font-bold text-green-600">Price: ৳{product.price.toLocaleString('bn-BD')}/kg</p>
+      <p className="text-lg font-bold text-olive">Price: ৳{product.price.toLocaleString('bn-BD')}/kg</p>
     </div>
     </Link>
   );
