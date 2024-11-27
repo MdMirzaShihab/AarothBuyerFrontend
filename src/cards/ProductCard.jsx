@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 const ProductCard = ({ product, catagory, hub }) => {
   return (
     <Link
-      to={`/products/${product.id}`}
-      className="no-underline">
+      to={`/products/${product.id}`}>
     <div className="flex flex-col w-72 rounded-xl p-4 m-2 bg-white shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">
     <div className="mb-4 relative">
           <img

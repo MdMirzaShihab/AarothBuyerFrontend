@@ -5,6 +5,7 @@ import BuyerPage from "./pages/BuyerPage";
 import SellerPage from "./pages/SellerPage";
 import AllProducts from "./pages/AllProductsPage";
 import ProductDetails from "./pages/ProductDetails";
+import CatagoriesByHub from "./pages/CatagoriesByHub";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/seller" element={<SellerPage />} />
         <Route path="/products" element={<AllProducts />} />
         <Route path="/products/:productId" element={<ProductDetails />} />
+        <Route path="/hubdetails/:hubId" element={<CatagoriesByHub />} />
       </Routes>
     </Router>
   );
