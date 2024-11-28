@@ -162,7 +162,7 @@ const products = [
     minQuantity: 20,
     sold: 200,
     maxQuantity: 600,
-    hub: 2, 
+    hub: 1, 
     price: 141,
     shipping: 2,
     vendor: 6,

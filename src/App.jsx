@@ -6,6 +6,7 @@ import SellerPage from "./pages/SellerPage";
 import AllProducts from "./pages/AllProductsPage";
 import ProductDetails from "./pages/ProductDetails";
 import CatagoriesByHub from "./pages/CatagoriesByHub";
+import ProductsByHubAndCatagory from "./components/ProductsByHubAndCatagory";
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
         <Route path="/products" element={<AllProducts />} />
         <Route path="/products/:productId" element={<ProductDetails />} />
         <Route path="/hubdetails/:hubId" element={<CatagoriesByHub />} />
+        <Route
+          path="/hubdetails/:hubId/category/:categoryId"
+          element={<ProductsByHubAndCatagory />} // Route for filtered products page
+        />
       </Routes>
     </Router>
   );
