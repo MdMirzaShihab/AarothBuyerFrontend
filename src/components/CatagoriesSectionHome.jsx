@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { productCatagories } from "../constants";
-import CatagoryCard from "../cards/CatagoryCard";
+import CatagoryCard from "../cards/CatagoryCardHome";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css"; // Import core Swiper styles
 import "swiper/css/navigation"; // Import navigation styles (if you use navigation)

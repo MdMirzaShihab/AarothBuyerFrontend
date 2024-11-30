@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { products } from "../constants"; // Assuming you have your products constant
+import { productCatagories, products, hubs } from "../constants"; // Assuming you have your products constant
+import ProductCard from "../cards/ProductCard";
 
 
 
@@ -22,19 +23,12 @@ const ProductsByHubAndCatagory = () => {
         {/* Display the filtered products */}
         {filteredProducts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProducts.map((product) => (
-              <div key={product.id} className="border p-4 rounded-lg shadow-md">
-                <img
-                  src={product.image[0]} // Assuming you have an image array
-                  alt={product.name}
-                  className="w-full h-40 object-cover mb-4"
-                />
-                <h3 className="text-xl font-semibold text-earthy-brown">{product.name}</h3>
-                <p className="text-lg text-earthy-tan">Price: ${product.price}</p>
-                <p className="text-sm text-gray-600">Sold: {product.sold}</p>
-                <p className="text-sm text-gray-600">Min Quantity: {product.minQuantity}</p>
-              </div>
-            ))}
+            {filteredProducts.map((product) => {
+          const catagory = productCatagories.find((cat) => cat.id === product.catagory);
+          const hub = hubs.find((h) => h.id === product.hub);
+          return (
+            <ProductCard key={product.id} product={product} catagory={catagory} hub={hub}  /> // Render each product using the ProductCard component
+          )})}
           </div>
         ) : (
           <p className="text-center text-earthy-brown">No products found for this category.</p>

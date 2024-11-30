@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import BuyerPage from "./pages/BuyerPage";
 import SellerPage from "./pages/SellerPage";
@@ -24,6 +25,7 @@ function App() {
           element={<ProductsByHubAndCatagory />} // Route for filtered products page
         />
       </Routes>
+      <Footer />
     </Router>
   );
 }

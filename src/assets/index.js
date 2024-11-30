@@ -20,6 +20,8 @@ import SmallPotatos from "./products/SmallPotatos.webp";
 
 //Root
 import Logo from "./Logo.png";
+import LogoWhite from "./LogoWhite.png";
+import LogoLight from "./LogoLight.png";
 import Leaves from "./Leaves.png";
 import HubImg from "./HubImg.png";
 
@@ -43,4 +45,6 @@ export {
   RedLargeOnions,
   RoundLargePotatoes,
   SmallPotatos,
+  LogoWhite,
+  LogoLight,
 };

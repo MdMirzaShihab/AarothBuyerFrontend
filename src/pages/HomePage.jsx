@@ -2,7 +2,6 @@ import HeroSection from "../components/HeroSection";
 import Catagories from "../components/CatagoriesSectionHome";
 import Products from "../components/ProductSectionHome";
 import Hubs from "../components/HubsSectionHome";
-import Footer from "../components/Footer";
 
 export default function HomePage() {
   return (
@@ -11,7 +10,6 @@ export default function HomePage() {
       <Catagories />
       <Hubs />
       <Products />
-      <Footer />
     </div>
   );
 }
