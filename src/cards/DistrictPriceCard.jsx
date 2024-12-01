@@ -1,9 +1,9 @@
 import React from 'react';
 
-const DivisionPriceCard = ({ division, avgPrice, productCount, highestPrice, lowestPrice }) => {
+const DistrictPriceCard = ({ district, avgPrice, productCount, highestPrice, lowestPrice }) => {
   return (
     <div className="bg-earthy-beige shadow-lg rounded-lg p-5 w-64 h-56 flex flex-col items-center justify-between border border-earthy-tan">
-      <h3 className="text-xl font-semibold text-earthy-brown">{division}</h3>
+      <h3 className="text-xl font-semibold text-earthy-brown">{district}</h3>
       <p className="text-2xl font-bold text-forest mt-2">৳ {avgPrice}</p>
       <p className="text-sm text-earthy-brown mt-1">Average Price</p>
       
@@ -16,4 +16,4 @@ const DivisionPriceCard = ({ division, avgPrice, productCount, highestPrice, low
   );
 };
 
-export default DivisionPriceCard;
+export default DistrictPriceCard;

@@ -8,6 +8,8 @@ import AllProducts from "./pages/AllProductsPage";
 import ProductDetails from "./pages/ProductDetails";
 import CategoriesByHub from "./pages/CategoriesByHub";
 import ProductsByHubAndCategory from "./components/ProductsByHubAndCategory";
+import DivisionByCategory from "./components/DivitionsByCategory";
+import PriceComparison from "./pages/PriceComparison";
 
 function App() {
   return (
@@ -23,6 +25,10 @@ function App() {
         <Route
           path="/hubdetails/:hubId/category/:categoryId"
           element={<ProductsByHubAndCategory />} // Route for filtered products page
+        />
+        <Route
+          path="/category/:categoryId"
+          element={<PriceComparison />} // Route for filtered products page
         />
       </Routes>
       <Footer />

@@ -162,7 +162,7 @@ const products = [
     minQuantity: 20,
     sold: 200,
     maxQuantity: 600,
-    hub: 1,
+    hub: 2,
     price: 141,
     shipping: 2,
     vendor: 6,
@@ -183,7 +183,7 @@ const products = [
   {
     id: 8,
     name: "Small Potatos",
-    category: 2,
+    category: 4,
     image: [SmallPotatos],
     minQuantity: 20,
     sold: 80,
