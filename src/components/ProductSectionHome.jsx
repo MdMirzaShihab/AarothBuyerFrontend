@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ProductCard from "../cards/ProductCard";
-import { hubs, productCatagories, products } from "../constants";
+import { hubs, productCategories, products } from "../constants";
 
 const ProductSectionHome = () => {
   return (
@@ -11,13 +11,19 @@ const ProductSectionHome = () => {
       </h2>
       <div className="flex flex-wrap justify-center gap-2 mt-2">
         {products.map((product) => {
-          const catagory = productCatagories.find((cat) => cat.id === product.catagory);
+          const category = productCategories.find(
+            (cat) => cat.id === product.category
+          );
           const hub = hubs.find((h) => h.id === product.hub);
           return (
-            <ProductCard key={product.id} product={product} catagory={catagory} hub={hub} />
-          )}
-          
-        )}
+            <ProductCard
+              key={product.id}
+              product={product}
+              category={category}
+              hub={hub}
+            />
+          );
+        })}
       </div>
       <div className="flex justify-center mt-8">
         <Link

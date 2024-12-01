@@ -79,7 +79,8 @@ const HubsSectionHome = () => {
       if (selectedDivision) {
         // Only show districts related to the selected division
         return hubs.some(
-          (hub) => hub.district === district && hub.division === selectedDivision
+          (hub) =>
+            hub.district === district && hub.division === selectedDivision
         );
       }
       return true;
@@ -108,7 +109,9 @@ const HubsSectionHome = () => {
             {/* Division Select */}
             <Select
               options={divisionOptions}
-              value={divisionOptions.find((option) => option.value === selectedDivision)}
+              value={divisionOptions.find(
+                (option) => option.value === selectedDivision
+              )}
               onChange={handleDivisionChange}
               isClearable
               placeholder="Select Division"
@@ -118,7 +121,9 @@ const HubsSectionHome = () => {
             {/* District Select */}
             <Select
               options={districtOptions}
-              value={districtOptions.find((option) => option.value === selectedDistrict)}
+              value={districtOptions.find(
+                (option) => option.value === selectedDistrict
+              )}
               onChange={handleDistrictChange}
               isClearable
               placeholder="Select District"

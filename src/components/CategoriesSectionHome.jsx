@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
-import { productCatagories } from "../constants";
-import CatagoryCard from "../cards/CatagoryCardHome";
+import { productCategories } from "../constants";
+import CategoryCard from "../cards/CategoryCardHome";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css"; // Import core Swiper styles
 import "swiper/css/navigation"; // Import navigation styles (if you use navigation)
 import { Navigation } from "swiper/modules";
 
-const CatagoriesSectionHome = () => {
+const CategoriesSectionHome = () => {
   return (
     <section className="pb-10 pt-4 px-2 md:px-16">
       <h2 className="text-4xl text-center font-bold text-earthy-brown">
-        Catagories
+        Categories
       </h2>
       <div className="pt-10">
         <Swiper
@@ -37,9 +37,9 @@ const CatagoriesSectionHome = () => {
             },
           }} // Responsive breakpoints for different screen sizes
         >
-          {productCatagories.map((catagory) => (
-            <SwiperSlide key={catagory.id}>
-              <CatagoryCard catagory={catagory} />
+          {productCategories.map((category) => (
+            <SwiperSlide key={category.id}>
+              <CategoryCard category={category} />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -69,4 +69,4 @@ const CatagoriesSectionHome = () => {
   );
 };
 
-export default CatagoriesSectionHome;
+export default CategoriesSectionHome;

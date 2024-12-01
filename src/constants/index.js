@@ -47,10 +47,10 @@ const vendorProfiles = [
     id: 6,
     name: "Vagolpur",
     Rating: 2,
-  }
+  },
 ];
 
-const productCatagories = [
+const productCategories = [
   {
     id: 1,
     name: "Tomato",
@@ -92,7 +92,7 @@ const products = [
   {
     id: 1,
     name: "Fresh Thai Tomatoes",
-    catagory: 1,
+    category: 1,
     image: [FreshThaiTomatoes],
     minQuantity: 20,
     sold: 600,
@@ -105,7 +105,7 @@ const products = [
   {
     id: 2,
     name: "Round large potatoes",
-    catagory: 2,
+    category: 2,
     image: [RoundLargePotatoes],
     minQuantity: 50,
     sold: 850,
@@ -118,7 +118,7 @@ const products = [
   {
     id: 3,
     name: "Red large Onions",
-    catagory: 3,
+    category: 3,
     image: [RedLargeOnions],
     minQuantity: 15,
     sold: 60,
@@ -131,7 +131,7 @@ const products = [
   {
     id: 4,
     name: "Fresh Chinigura Chal",
-    catagory: 4,
+    category: 4,
     image: [FreshChiniguraChal],
     minQuantity: 10,
     sold: 330,
@@ -144,7 +144,7 @@ const products = [
   {
     id: 5,
     name: "Green Deshi Chili",
-    catagory: 5,
+    category: 5,
     image: [GreenDeshiChili],
     minQuantity: 10,
     sold: 40,
@@ -157,12 +157,12 @@ const products = [
   {
     id: 6,
     name: "Large Fresh Garlic",
-    catagory: 6,
+    category: 6,
     image: [LargeFreshGarlic],
     minQuantity: 20,
     sold: 200,
     maxQuantity: 600,
-    hub: 1, 
+    hub: 1,
     price: 141,
     shipping: 2,
     vendor: 6,
@@ -170,12 +170,12 @@ const products = [
   {
     id: 7,
     name: "Fresh Shamrat Onion",
-    catagory: 3,
+    category: 3,
     image: [FreshShamratOnion],
     minQuantity: 20,
     sold: 120,
     maxQuantity: 600,
-    hub: 1, 
+    hub: 1,
     price: 115,
     shipping: 2,
     vendor: 3,
@@ -183,12 +183,12 @@ const products = [
   {
     id: 8,
     name: "Small Potatos",
-    catagory: 2,
+    category: 2,
     image: [SmallPotatos],
     minQuantity: 20,
     sold: 80,
     maxQuantity: 600,
-    hub: 18, 
+    hub: 18,
     price: 60,
     shipping: 2,
     vendor: 2,
@@ -196,7 +196,7 @@ const products = [
   {
     id: 9,
     name: "Fresh Red Small Onions",
-    catagory: 3,
+    category: 3,
     image: [FreshRedSmallOnions, FreshShamratOnion, RedLargeOnions],
     minQuantity: 20,
     sold: 60,
@@ -475,7 +475,4 @@ const hubs = [
   },
 ];
 
-
-
-
-export { products, hubs, productCatagories, vendorProfiles };
+export { products, hubs, productCategories, vendorProfiles };
