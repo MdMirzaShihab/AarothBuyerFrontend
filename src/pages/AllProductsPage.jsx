@@ -176,14 +176,14 @@ const AllProductsPage = () => {
     setSelectedSubdistrict(selectedOption);
 
   return (
-    <div className="flex flex-col lg:flex-row">
+    <div className="flex flex-col lg:flex-row bg-light-gray text-dark-gray">
       {/* Sidebar */}
-      <div className="lg:w-1/4 w-full lg:p-4 p-2 bg-gray-100">
-        <h2 className="text-xl font-bold mb-4">Filter & Sort</h2>
+      <div className="lg:w-1/4 w-full lg:p-6 p-4 bg-earthy-beige border border-gray-300 rounded-lg shadow-lg">
+        <h2 className="text-2xl font-bold mb-6 text-earthy-brown">Filter & Sort</h2>
 
         {/* Hub Select */}
         <div className="mb-4">
-          <label className="block font-semibold">Select Hub</label>
+          <label className="block text-sm font-medium text-earthy-brown">Select Hub</label>
           <Select
             options={hubOptions}
             value={hubOptions.find(
@@ -191,54 +191,52 @@ const AllProductsPage = () => {
             )}
             onChange={handleHubChange}
             isClearable
-            className="w-full"
+            className="w-full bg-white text-dark-gray shadow-md border border-gray-300 rounded-md"
             placeholder="Select Hub"
           />
         </div>
 
-        {/* Location Filters (Division, District, Subdistrict, Location) */}
-        <div className="flex flex-col justify-center items-center gap-2 mb-4">
-          <label className="block font-semibold">Location</label>
-          {/* Location Search */}
+        {/* Location Filters */}
+        <div className="flex flex-col gap-2 mb-4">
+          <label className="block text-sm font-medium text-earthy-brown">Location</label>
           <input
             type="text"
             value={locationFilter}
             onChange={(e) => setLocationFilter(e.target.value)}
             placeholder="Search by Location, District, Subdistrict"
-            className="w-full p-2 border border-gray-300 rounded mb-2"
+            className="w-full p-2 border border-gray-300 rounded-md"
           />
-          {/* Division Select */}
+
+          {/* Division, District, Subdistrict Select */}
           <Select
             options={divisionOptions}
             value={divisionOptions.find(
               (option) => option.value === selectedDivision?.value
             )}
             onChange={handleDivisionChange}
-            className="w-30 md:w-56"
+            className="w-full bg-white text-dark-gray border border-gray-300 rounded-md"
             isClearable
             placeholder="Select Division"
           />
 
-          {/* District Select */}
           <Select
             options={districtOptions}
             value={districtOptions.find(
               (option) => option.value === selectedDistrict?.value
             )}
             onChange={handleDistrictChange}
-            className="w-30 md:w-56"
+            className="w-full bg-white text-dark-gray border border-gray-300 rounded-md"
             isClearable
             placeholder="Select District"
           />
 
-          {/* Subdistrict Select */}
           <Select
             options={subdistrictOptions}
             value={subdistrictOptions.find(
               (option) => option.value === selectedSubdistrict?.value
             )}
             onChange={handleSubdistrictChange}
-            className="w-30 md:w-56"
+            className="w-full bg-white text-dark-gray border border-gray-300 rounded-md"
             isClearable
             placeholder="Select Subdistrict"
           />
@@ -246,8 +244,8 @@ const AllProductsPage = () => {
 
         {/* Price Range Filter */}
         <div className="mb-4">
-          <label className="block font-semibold">Price Range</label>
-          <div className="flex space-x-2">
+          <label className="block text-sm font-medium text-earthy-brown">Price Range</label>
+          <div className="flex gap-2">
             <input
               type="number"
               name="priceMin"
@@ -255,7 +253,7 @@ const AllProductsPage = () => {
               onChange={(e) =>
                 setPriceRange({ ...priceRange, min: e.target.value })
               }
-              className="w-1/2 p-2 border border-gray-300 rounded"
+              className="w-1/2 p-2 border border-gray-300 rounded-md"
               placeholder="Min"
             />
             <input
@@ -265,7 +263,7 @@ const AllProductsPage = () => {
               onChange={(e) =>
                 setPriceRange({ ...priceRange, max: e.target.value })
               }
-              className="w-1/2 p-2 border border-gray-300 rounded"
+              className="w-1/2 p-2 border border-gray-300 rounded-md"
               placeholder="Max"
             />
           </div>
@@ -273,25 +271,25 @@ const AllProductsPage = () => {
 
         {/* Category Filter */}
         <div className="mb-4">
-          <label className="block font-semibold">Category</label>
+          <label className="block text-sm font-medium text-earthy-brown">Category</label>
           <Select
             options={categoryOptions}
             value={categoryFilter}
             onChange={(selectedOption) => setCategoryFilter(selectedOption)}
             isClearable
-            className="w-full"
+            className="w-full bg-white text-dark-gray border border-gray-300 rounded-md"
             placeholder="Select a category"
           />
         </div>
 
         {/* Sort By Price */}
         <div className="mb-4">
-          <label className="block font-semibold">Sort By</label>
+          <label className="block text-sm font-medium text-earthy-brown">Sort By</label>
           <select
             name="sort"
             value={sortOrder}
             onChange={(e) => setSortOrder(e.target.value)}
-            className="w-full p-2 mt-1 border border-gray-300 rounded">
+            className="w-full p-2 mt-1 border border-gray-300 rounded-md">
             <option value="asc">Price (Low to High)</option>
             <option value="desc">Price (High to Low)</option>
           </select>
@@ -299,9 +297,9 @@ const AllProductsPage = () => {
       </div>
 
       {/* Product List Section */}
-      <div className="lg:w-3/4 w-full p-4">
-        <h2 className="text-2xl font-bold mb-6">Available Products</h2>
-        <div className="flex mx-auto pb-10 px-3 sm:px-0 pt-[50px] max-w-7xl justify-center flex-wrap gap-5">
+      <div className="lg:w-3/4 w-full p-6">
+        <h2 className="text-3xl font-bold mb-6 text-earthy-brown">Available Products</h2>
+        <div className="flex flex-wrap gap-6 justify-center max-w-7xl mx-auto">
           {filteredProducts.map((product) => {
             const category = productCategories.find(
               (cat) => cat.id === product.category

@@ -30,21 +30,21 @@ const PriceComparison = () => {
       </div>
 
       {/* Button Group to switch between Division, District, or Subdistrict */}
-      <div className="flex justify-center mb-6">
+      <div className="flex rounded-md justify-center mb-6">
         <button
-          className={`px-4 py-2 mx-2 rounded-lg ${selectedTab === 'division' ? 'bg-earthy-yellow text-white' : 'bg-earthy-beige text-earthy-brown'}`}
+          className={`px-4 py-2 rounded-s-lg border border-earthy-tan ${selectedTab === 'division' ? 'bg-earthy-yellow text-white' : 'bg-earthy-beige text-earthy-brown'}`}
           onClick={() => handleTabChange('division')}
         >
           Division
         </button>
         <button
-          className={`px-4 py-2 mx-2 rounded-lg ${selectedTab === 'district' ? 'bg-earthy-yellow text-white' : 'bg-earthy-beige text-earthy-brown'}`}
+          className={`px-4 py-2 border-t border-b border-earthy-tan ${selectedTab === 'district' ? 'bg-earthy-yellow text-white' : 'bg-earthy-beige text-earthy-brown'}`}
           onClick={() => handleTabChange('district')}
         >
           District
         </button>
         <button
-          className={`px-4 py-2 mx-2 rounded-lg ${selectedTab === 'subdistrict' ? 'bg-earthy-yellow text-white' : 'bg-earthy-beige text-earthy-brown'}`}
+          className={`px-4 py-2 rounded-e-lg border border-earthy-tan ${selectedTab === 'subdistrict' ? 'bg-earthy-yellow text-white' : 'bg-earthy-beige text-earthy-brown'}`}
           onClick={() => handleTabChange('subdistrict')}
         >
           Subdistrict

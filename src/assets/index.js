@@ -25,6 +25,14 @@ import LogoLight from "./LogoLight.png";
 import Leaves from "./Leaves.png";
 import HubImg from "./HubImg.png";
 
+//cover
+import cover1 from "./Hero/cover1.jpg";
+import cover2 from "./Hero/cover2.jpg";
+import cover3 from "./Hero/cover3.jpg";
+import cover4 from "./Hero/cover4.jpg";
+import cover5 from "./Hero/cover5.jpg";
+import cover6 from "./Hero/cover6.jpg";
+
 export {
   OnionImg,
   PotatoImg,
@@ -47,4 +55,10 @@ export {
   SmallPotatos,
   LogoWhite,
   LogoLight,
+  cover1,
+  cover2,
+  cover3,
+  cover4,
+  cover5,
+  cover6
 };
