@@ -11,7 +11,7 @@ const HeroSection = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
 
-  const coverImages = [cover1, cover2, cover3, cover4, cover5, cover6]; // Array of images
+  const coverImages = [cover2, cover1, cover3, cover4, cover5, cover6]; // Array of images
 
   // Function to handle input change and filter products/categories
   const handleSearchChange = (event) => {
