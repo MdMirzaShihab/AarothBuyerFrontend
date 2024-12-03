@@ -8,7 +8,6 @@ import AllProducts from "./pages/AllProductsPage";
 import ProductDetails from "./pages/ProductDetails";
 import CategoriesByHub from "./pages/CategoriesByHub";
 import ProductsByHubAndCategory from "./components/ProductsByHubAndCategory";
-import DivisionByCategory from "./components/DivitionsByCategory";
 import PriceComparison from "./pages/PriceComparison";
 
 function App() {

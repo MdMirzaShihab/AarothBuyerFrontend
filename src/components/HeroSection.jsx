@@ -1,11 +1,17 @@
-import React, { useState } from "react";
-import { cover1 } from "../assets";  // Importing image asset
+import React, { useState, useEffect } from "react";
+import { cover1, cover2, cover3, cover4, cover5, cover6 } from "../assets";  // Importing image asset
 import { products, productCategories } from "../constants";  // Importing data
+import { Swiper, SwiperSlide } from "swiper/react"; // Import Swiper components
+import "swiper/css"; // Import Swiper styles
+import "swiper/css/effect-fade"; // Import fade effect styles
+
 
 const HeroSection = () => {
   // State for search input and suggestions
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
+
+  const coverImages = [cover1, cover2, cover3, cover4, cover5, cover6]; // Array of images
 
   // Function to handle input change and filter products/categories
   const handleSearchChange = (event) => {
@@ -46,10 +52,11 @@ const HeroSection = () => {
     console.log(suggestion); // Handle clicking on a suggestion (to be expanded)
   };
 
+
   return (
     <section className="bg-earthy-beige  flex items-center justify-between">
       {/* Left Section (Text content) */}
-      <div className="w-full md:w-1/2 text-center md:text-left flex flex-col items-center">
+      <div className="w-full md:w-1/2 text-center md:text-left flex flex-col items-center p-5">
         <h1 className="text-4xl font-bold text-olive">
           Welcome to
           <span className="text-forest"> Aaroth.com</span>
@@ -95,8 +102,28 @@ const HeroSection = () => {
       </div>
 
       {/* Right Section (Image) */}
-      <div className="hidden md:block w-full md:w-1/2 ml-auto">
-        <img src={cover1} alt="Aaroth Logo" className="h-auto w-full" />
+      <div className="hidden md:block w-full md:w-1/2">
+        <div className="flex justify-end items-center w-full">
+        <Swiper
+          spaceBetween={50}
+          slidesPerView={1} // Display one slide at a time
+          loop={true} // Infinite loop
+          loopAdditionalSlides={1} // Create one duplicate slide
+          autoplay={{ delay: 3000, disableOnInteraction: false }} // Autoplay every 3 seconds
+          effect="fade" // Smooth fade transition
+        >
+          {coverImages.map((image, index) => (
+            <SwiperSlide key={index}>
+              <img
+                src={image}
+                alt={`Cover Image ${index + 1}`} // Better accessibility
+                className="w-full h-96 object-cover"
+                loading="lazy" // Native lazy loading in the browser
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        </div>
       </div>
     </section>
   );
