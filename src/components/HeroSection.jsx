@@ -4,6 +4,7 @@ import { products, productCategories } from "../constants";  // Importing data
 import { Swiper, SwiperSlide } from "swiper/react"; // Import Swiper components
 import "swiper/css"; // Import Swiper styles
 import "swiper/css/effect-fade"; // Import fade effect styles
+import { Link } from "react-router-dom";
 
 
 const HeroSection = () => {
@@ -86,13 +87,16 @@ const HeroSection = () => {
               <div className="absolute z-10 mt-2 w-full bg-white border border-earthy-tan rounded-lg shadow-lg">
                 <ul>
                   {filteredSuggestions.map((suggestion) => (
+                    <Link
+                    to={`/products?category=${suggestion.id}`}
+                    key={suggestion.id}
+                  >
                     <li
-                      key={suggestion.id}
-                      className="px-4 py-2 text-sm text-earthy-brown hover:bg-earthy-tan cursor-pointer"
-                      onClick={() => handleSuggestionClick(suggestion)}
-                    >
+                    className="px-4 py-2 text-sm text-earthy-brown hover:bg-earthy-tan cursor-pointer"
+                    onClick={() => handleSuggestionClick(suggestion)}>
                       {suggestion.name}
                     </li>
+                    </Link>
                   ))}
                 </ul>
               </div>

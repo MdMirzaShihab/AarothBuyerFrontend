@@ -35,11 +35,7 @@ const ProductDetails = () => {
 
   // Handle quantity change
   const handleQuantityChange = (e) => {
-    const value = Math.min(
-      Math.max(e.target.value, product.minQuantity),
-      remainingQuantity
-    ); // Ensure value is within range
-    setQuantity(value);
+    setQuantity(e.target.value);
   };
 
   // Add to Cart (this could later be connected to a state management or cart system)
@@ -64,7 +60,6 @@ const ProductDetails = () => {
                 src={selectedImage} // Display the selected image
               />
             </div>
-
             {/* Thumbnail Images */}
             <div className="flex space-x-4">
               {product.image.map((img, index) => (
@@ -80,7 +75,6 @@ const ProductDetails = () => {
               ))}
             </div>
           </div>
-
           <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
             {/* Product Title */}
             <h2 className="text-sm title-font text-olive tracking-widest">
@@ -89,7 +83,6 @@ const ProductDetails = () => {
             <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">
               {product.name}
             </h1>
-
             {/* Rating */}
             <div className="flex justify-between mb-4">
               <div className="flex items-center">
@@ -112,10 +105,8 @@ const ProductDetails = () => {
               </div>
               <div className="mr-3">Vendor: {vendor?.name}</div>
             </div>
-
             {/* Product Description */}
             <p className="leading-relaxed">{product.description}</p>
-
             {/* Hub Information */}
             <div className="flex items-center gap-4">
               <span className="text-xl font-semibold text-gray-700">Hub:</span>
@@ -123,7 +114,6 @@ const ProductDetails = () => {
                 {hub?.name}, {hub?.district}
               </span>
             </div>
-
             {/* Remaining Quantity & Progress Bar */}
             <div className="flex flex-col mt-6">
               <div className="flex items-center justify-between mb-2">
@@ -145,7 +135,6 @@ const ProductDetails = () => {
                 <span>{product.maxQuantity}kg capasity</span>
               </div>
             </div>
-
             {/* Quantity Selector */}
             <div className="flex mt-6 items-center pb-5 border-b-2 border-earthy-tan mb-5">
               <div className="flex items-center gap-4">
@@ -163,7 +152,6 @@ const ProductDetails = () => {
                 />
               </div>
             </div>
-
             {/* Add to Cart Button */}
             <div className="flex">
               <span className="title-font font-medium text-2xl text-gray-900">
@@ -175,7 +163,6 @@ const ProductDetails = () => {
                 Add to Cart
               </button>
             </div>
-
             {/* Location and Vendor Info */}
             <div className="flex mt-6">
               <span className="text-olive">
