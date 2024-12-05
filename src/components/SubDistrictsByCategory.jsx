@@ -4,8 +4,8 @@ import PriceCard from "../cards/PriceCard";
 
 const SubDistrictsByCategory = ({ categoryId }) => {
   // State for search and sorting options
-  const [searchQuery, setSearchQuery] = useState("");  // For search by subdistrict name
-  const [sortOrder, setSortOrder] = useState("lowToHigh");  // For sorting prices (low to high or high to low)
+  const [searchQuery, setSearchQuery] = useState(""); // For search by subdistrict name
+  const [sortOrder, setSortOrder] = useState("lowToHigh"); // For sorting prices (low to high or high to low)
 
   // Filter products based on the selected categoryId
   const productsInCategory = products.filter(
@@ -41,17 +41,21 @@ const SubDistrictsByCategory = ({ categoryId }) => {
   }, {});
 
   // Convert subDistrictData into an array for rendering
-  const subDistrictSummary = Object.keys(subDistrictData).map((subDistrict) => ({
-    subDistrict,
-    productCount: subDistrictData[subDistrict].products.length,
-    averagePrice:
-      subDistrictData[subDistrict].products.length > 0
-        ? (subDistrictData[subDistrict].totalPrices /
-            subDistrictData[subDistrict].products.length).toFixed(2)
-        : 0,
-    maxPrice: subDistrictData[subDistrict].maxPrice.toFixed(2),
-    minPrice: subDistrictData[subDistrict].minPrice.toFixed(2),
-  }));
+  const subDistrictSummary = Object.keys(subDistrictData).map(
+    (subDistrict) => ({
+      subDistrict,
+      productCount: subDistrictData[subDistrict].products.length,
+      averagePrice:
+        subDistrictData[subDistrict].products.length > 0
+          ? (
+              subDistrictData[subDistrict].totalPrices /
+              subDistrictData[subDistrict].products.length
+            ).toFixed(2)
+          : 0,
+      maxPrice: subDistrictData[subDistrict].maxPrice.toFixed(2),
+      minPrice: subDistrictData[subDistrict].minPrice.toFixed(2),
+    })
+  );
 
   // Filter the subDistrictSummary based on the search query (subdistrict name)
   const filteredSubDistricts = subDistrictSummary.filter((data) =>
@@ -69,7 +73,7 @@ const SubDistrictsByCategory = ({ categoryId }) => {
   });
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="container  flex justify-center p-6">
       <div className="lg:w-3/4 w-full p-4">
         <h2 className="text-2xl font-bold text-earthy-brown mb-6">
           Average price by subdistrict
@@ -91,8 +95,7 @@ const SubDistrictsByCategory = ({ categoryId }) => {
           <select
             value={sortOrder}
             onChange={(e) => setSortOrder(e.target.value)}
-            className="p-3 w-full border border-earthy-tan rounded-lg bg-earthy-beige text-earthy-brown cursor-pointer shadow-md transition-all hover:bg-earthy-tan"
-          >
+            className="p-3 w-full border border-earthy-tan rounded-lg bg-earthy-beige text-earthy-brown cursor-pointer shadow-md transition-all hover:bg-earthy-tan">
             <option value="lowToHigh">Sort by Price: Low to High</option>
             <option value="highToLow">Sort by Price: High to Low</option>
           </select>

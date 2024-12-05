@@ -816,7 +816,7 @@ const products = [
     price: 90,
     shipping: 1.6,
     vendor: 5,
-  }
+  },
 ];
 
 const hubs = [

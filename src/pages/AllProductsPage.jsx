@@ -179,11 +179,15 @@ const AllProductsPage = () => {
     <div className="flex flex-col lg:flex-row bg-light-gray text-dark-gray">
       {/* Sidebar */}
       <div className="lg:w-1/4 w-full lg:p-6 p-4 bg-earthy-beige border border-gray-300 rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold mb-6 text-earthy-brown">Filter & Sort</h2>
+        <h2 className="text-2xl font-bold mb-6 text-earthy-brown">
+          Filter & Sort
+        </h2>
 
         {/* Hub Select */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-earthy-brown">Select Hub</label>
+          <label className="block text-sm font-medium text-earthy-brown">
+            Select Hub
+          </label>
           <Select
             options={hubOptions}
             value={hubOptions.find(
@@ -198,7 +202,9 @@ const AllProductsPage = () => {
 
         {/* Location Filters */}
         <div className="flex flex-col gap-2 mb-4">
-          <label className="block text-sm font-medium text-earthy-brown">Location</label>
+          <label className="block text-sm font-medium text-earthy-brown">
+            Location
+          </label>
           <input
             type="text"
             value={locationFilter}
@@ -244,7 +250,9 @@ const AllProductsPage = () => {
 
         {/* Price Range Filter */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-earthy-brown">Price Range</label>
+          <label className="block text-sm font-medium text-earthy-brown">
+            Price Range
+          </label>
           <div className="flex gap-2">
             <input
               type="number"
@@ -271,7 +279,9 @@ const AllProductsPage = () => {
 
         {/* Category Filter */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-earthy-brown">Category</label>
+          <label className="block text-sm font-medium text-earthy-brown">
+            Category
+          </label>
           <Select
             options={categoryOptions}
             value={categoryFilter}
@@ -284,7 +294,9 @@ const AllProductsPage = () => {
 
         {/* Sort By Price */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-earthy-brown">Sort By</label>
+          <label className="block text-sm font-medium text-earthy-brown">
+            Sort By
+          </label>
           <select
             name="sort"
             value={sortOrder}
@@ -298,7 +310,9 @@ const AllProductsPage = () => {
 
       {/* Product List Section */}
       <div className="lg:w-3/4 w-full p-6">
-        <h2 className="text-3xl font-bold mb-6 text-earthy-brown">Available Products</h2>
+        <h2 className="text-3xl font-bold mb-6 text-earthy-brown">
+          Available Products
+        </h2>
         <div className="flex flex-wrap gap-6 justify-center max-w-7xl mx-auto">
           {filteredProducts.map((product) => {
             const category = productCategories.find(

@@ -5,7 +5,7 @@ import { hubs, productCategories, products } from "../constants";
 
 const ProductSectionHome = () => {
   return (
-    <section className="pb-10 pt-4 px-2 md:px-16">
+    <section className="max-w-screen-xl mx-auto pb-10 pt-4 px-2">
       <h2 className="text-4xl text-center font-bold text-earthy-brown">
         Items for you
       </h2>

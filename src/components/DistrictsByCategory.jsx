@@ -4,8 +4,8 @@ import PriceCard from "../cards/PriceCard";
 
 const DistrictsByCategory = ({ categoryId }) => {
   // State for search and sorting options
-  const [searchQuery, setSearchQuery] = useState("");  // For search by district name
-  const [sortOrder, setSortOrder] = useState("lowToHigh");  // For sorting prices (low to high or high to low)
+  const [searchQuery, setSearchQuery] = useState(""); // For search by district name
+  const [sortOrder, setSortOrder] = useState("lowToHigh"); // For sorting prices (low to high or high to low)
 
   // Filter products based on selected categoryId
   const productsInCategory = products.filter(
@@ -46,8 +46,10 @@ const DistrictsByCategory = ({ categoryId }) => {
     productCount: districtData[district].products.length,
     averagePrice:
       districtData[district].products.length > 0
-        ? (districtData[district].totalPrices /
-            districtData[district].products.length).toFixed(2)
+        ? (
+            districtData[district].totalPrices /
+            districtData[district].products.length
+          ).toFixed(2)
         : 0,
     maxPrice: districtData[district].maxPrice.toFixed(2),
     minPrice: districtData[district].minPrice.toFixed(2),
@@ -69,37 +71,33 @@ const DistrictsByCategory = ({ categoryId }) => {
   });
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="container flex justify-center p-6">
       <div className="lg:w-3/4 w-full p-4">
         <h2 className="text-2xl font-bold text-earthy-brown mb-6">
           Average price by district
         </h2>
-
-{/* Search bar */}
-<div className="mb-4">
-  <input
-    type="text"
-    placeholder="Search by District"
-    value={searchQuery}
-    onChange={(e) => setSearchQuery(e.target.value)}
-    className="p-3 w-full border border-earthy-tan rounded-lg bg-earthy-beige text-earthy-brown placeholder:text-earthy-brown/50 shadow-md transition-all hover:bg-earthy-tan"
-  />
-</div>
-
-{/* Sort by price dropdown */}
-<div className="mb-6">
-  <select
-    value={sortOrder}
-    onChange={(e) => setSortOrder(e.target.value)}
-    className="p-3 w-full border border-earthy-tan rounded-lg bg-earthy-beige text-earthy-brown cursor-pointer shadow-md transition-all hover:bg-earthy-tan"
-  >
-    <option value="lowToHigh">Sort by Price: Low to High</option>
-    <option value="highToLow">Sort by Price: High to Low</option>
-  </select>
-</div>
-
+        {/* Search bar */}
+        <div className="mb-4">
+          <input
+            type="text"
+            placeholder="Search by District"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="p-3 w-full border border-earthy-tan rounded-lg bg-earthy-beige text-earthy-brown placeholder:text-earthy-brown/50 shadow-md transition-all hover:bg-earthy-tan"
+          />
+        </div>{" "}
+        mx-auto
+        {/* Sort by price dropdown */}
+        <div className="mb-6">
+          <select
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+            className="p-3 w-full border border-earthy-tan rounded-lg bg-earthy-beige text-earthy-brown cursor-pointer shadow-md transition-all hover:bg-earthy-tan">
+            <option value="lowToHigh">Sort by Price: Low to High</option>
+            <option value="highToLow">Sort by Price: High to Low</option>
+          </select>
+        </div>
         <p>{sortedDistricts.length} products found</p>
-
         <div className="flex mx-auto pb-10 px-3 sm:px-0 pt-[50px] max-w-7xl justify-center flex-wrap gap-5">
           {sortedDistricts.length > 0 ? (
             sortedDistricts.map((data) => (

@@ -15,8 +15,8 @@ const CategoriesSectionHome = () => {
     category.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
   return (
-    <section className="pb-10 pt-4 px-2 md:px-16">
-      <div className="flex flex-col md:flex-row items-center justify-between mb-6 gap-4">
+    <section className="max-w-screen-xl mx-auto pb-10 pt-8 px-2">
+      <div className="flex flex-col md:flex-row items-center justify-between mb-6 gap-4 px-8">
         <h2 className="text-4xl text-center font-bold text-earthy-brown">
           Price by Categories
         </h2>
@@ -38,8 +38,6 @@ const CategoriesSectionHome = () => {
           spaceBetween={30}
           centeredSlides={true}
           modules={[Navigation]} // Added Pagination module for progress
-
-          
           breakpoints={{
             1440: {
               slidesPerView: 7,

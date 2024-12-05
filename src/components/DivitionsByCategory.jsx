@@ -4,8 +4,8 @@ import PriceCard from "../cards/PriceCard";
 
 const DivitionsByCategory = ({ categoryId }) => {
   // State for search and sorting options
-  const [searchQuery, setSearchQuery] = useState("");  // For search by division name
-  const [sortOrder, setSortOrder] = useState("lowToHigh");  // For sorting prices (low to high or high to low)
+  const [searchQuery, setSearchQuery] = useState(""); // For search by division name
+  const [sortOrder, setSortOrder] = useState("lowToHigh"); // For sorting prices (low to high or high to low)
 
   // Filter products based on the selected categoryId
   const productsInCategory = products.filter(
@@ -46,8 +46,10 @@ const DivitionsByCategory = ({ categoryId }) => {
     productCount: divisionData[division].products.length,
     averagePrice:
       divisionData[division].products.length > 0
-        ? (divisionData[division].totalPrices /
-            divisionData[division].products.length).toFixed(2)
+        ? (
+            divisionData[division].totalPrices /
+            divisionData[division].products.length
+          ).toFixed(2)
         : 0,
     maxPrice: divisionData[division].maxPrice.toFixed(2),
     minPrice: divisionData[division].minPrice.toFixed(2),
@@ -69,7 +71,7 @@ const DivitionsByCategory = ({ categoryId }) => {
   });
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="container  flex justify-center p-6">
       <div className="lg:w-3/4 w-full p-4">
         <h2 className="text-2xl font-bold text-earthy-brown mb-6">
           Average price by division
@@ -91,8 +93,7 @@ const DivitionsByCategory = ({ categoryId }) => {
           <select
             value={sortOrder}
             onChange={(e) => setSortOrder(e.target.value)}
-            className="p-3 w-full border border-earthy-tan rounded-lg bg-earthy-beige text-earthy-brown cursor-pointer shadow-md transition-all hover:bg-earthy-tan"
-          >
+            className="p-3 w-full border border-earthy-tan rounded-lg bg-earthy-beige text-earthy-brown cursor-pointer shadow-md transition-all hover:bg-earthy-tan">
             <option value="lowToHigh">Sort by Price: Low to High</option>
             <option value="highToLow">Sort by Price: High to Low</option>
           </select>
