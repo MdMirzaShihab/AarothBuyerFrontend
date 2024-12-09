@@ -1,16 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import Slider from "react-slick";
 import { 
   cartBoyImg, cartGirlImg, eggImg, girlPaperbBagImg, handVegImg,
   saleImg, vegBucketImg 
 } from "../assets";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { products, productCategories } from "../constants";
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isFading, setIsFading] = useState(false);
+
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    arrows: false,
+  };
 
   // Array of images for the carousel
   const coverImages = [
@@ -18,18 +29,7 @@ const HeroSection = () => {
     girlPaperbBagImg, handVegImg, saleImg, vegBucketImg
   ];
 
-  // Cycle images every 3 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsFading(true);
-      setTimeout(() => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1));
-        setIsFading(false);
-      }, 1000); // Match fade duration
-    }, 4000);
 
-    return () => clearInterval(interval); // Cleanup on component unmount
-  }, [coverImages.length]);
 
   // Function to handle input change and filter products/categories
   const handleSearchChange = (event) => {
@@ -119,14 +119,21 @@ const HeroSection = () => {
 
       {/* Right Section (Image) */}
       <div className="hidden md:block w-full md:w-1/2">
-        <div className="flex justify-end items-center w-full h-full">
-        <img
-            src={coverImages[currentImageIndex]}
-            alt="Carousel Image"
-            className={`h-auto max-h-[500px] object-cover transition-opacity duration-1000 ${isFading ? "opacity-0" : "opacity-100"}`}
-          />
-        </div>
-      </div>
+  <div className="flex justify-end w-full h-full">
+    <div className="w-full max-w-xl">
+      <Slider {...settings}>
+        {coverImages.map((image, index) => (
+            <img
+            key={index}
+              src={image}
+              alt={`Slide ${index}`}
+              className="h-auto max-h-[500px] object-cover"
+            />
+        ))}
+      </Slider>
+    </div>
+  </div>
+</div>
     </section>
   );
 };
