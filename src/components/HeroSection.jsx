@@ -23,7 +23,7 @@ const HeroSection = () => {
     const interval = setInterval(() => {
       setIsFading(true);
       setTimeout(() => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % coverImages.length);
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1));
         setIsFading(false);
       }, 1000); // Match fade duration
     }, 4000);
