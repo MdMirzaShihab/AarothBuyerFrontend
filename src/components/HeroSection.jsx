@@ -25,8 +25,8 @@ const HeroSection = () => {
       setTimeout(() => {
         setCurrentImageIndex((prevIndex) => (prevIndex + 1) % coverImages.length);
         setIsFading(false);
-      }, 500); // Match fade duration
-    }, 3000);
+      }, 1000); // Match fade duration
+    }, 4000);
 
     return () => clearInterval(interval); // Cleanup on component unmount
   }, [coverImages.length]);
@@ -123,7 +123,7 @@ const HeroSection = () => {
         <img
             src={coverImages[currentImageIndex]}
             alt="Carousel Image"
-            className={`h-auto max-h-[500px] object-cover transition-opacity duration-500 ${isFading ? "opacity-0" : "opacity-100"}`}
+            className={`h-auto max-h-[500px] object-cover transition-opacity duration-1000 ${isFading ? "opacity-0" : "opacity-100"}`}
           />
         </div>
       </div>
