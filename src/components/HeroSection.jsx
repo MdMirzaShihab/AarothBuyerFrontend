@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { 
-  
   cartBoyImg, cartGirlImg, eggImg, girlPaperbBagImg, handVegImg,
   saleImg, vegBucketImg 
 } from "../assets";
@@ -120,7 +119,7 @@ const HeroSection = () => {
 
       {/* Right Section (Image) */}
       <div className="hidden md:block w-full md:w-1/2">
-        <div className="flex justify-end items-center w-full min-h-[500px]">
+        <div className="flex justify-end items-center w-full h-full">
         <img
             src={coverImages[currentImageIndex]}
             alt="Carousel Image"
