@@ -32,6 +32,14 @@ import cover3 from "./Hero/cover3.jpg";
 import cover4 from "./Hero/cover4.jpg";
 import cover5 from "./Hero/cover5.jpg";
 import cover6 from "./Hero/cover6.jpg";
+import cartImg from "./Hero/Cart.png";
+import cartBoyImg from "./Hero/cartBoy.png";
+import cartGirlImg from "./Hero/cartGirl.png";
+import eggImg from "./Hero/Egg.png";
+import girlPaperbBagImg from "./Hero/GirlPaperbBag.png";
+import handVegImg from "./Hero/HandVeg.png";
+import saleImg from "./Hero/Sale.png";
+import vegBucketImg from "./Hero/vegBucket.png";
 
 export {
   OnionImg,
@@ -60,5 +68,13 @@ export {
   cover3,
   cover4,
   cover5,
-  cover6
+  cover6,
+  cartImg,
+  cartBoyImg,
+  cartGirlImg,
+  eggImg,
+  girlPaperbBagImg,
+  handVegImg,
+  saleImg,
+  vegBucketImg,
 };

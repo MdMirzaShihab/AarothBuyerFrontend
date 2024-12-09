@@ -1,24 +1,42 @@
 import React, { useState, useEffect } from "react";
-import { cover1, cover2, cover3, cover4, cover5, cover6 } from "../assets"; // Importing image asset
-import { products, productCategories } from "../constants"; // Importing data
-import { Swiper, SwiperSlide } from "swiper/react"; // Import Swiper components
-import "swiper/css"; // Import Swiper styles
-import "swiper/css/effect-fade"; // Import fade effect styles
+import { 
+  
+  cartBoyImg, cartGirlImg, eggImg, girlPaperbBagImg, handVegImg,
+  saleImg, vegBucketImg 
+} from "../assets";
+import { products, productCategories } from "../constants";
 import { Link } from "react-router-dom";
 
 const HeroSection = () => {
-  // State for search input and suggestions
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isFading, setIsFading] = useState(false);
 
-  const coverImages = [cover2, cover1, cover3, cover4, cover5, cover6]; // Array of images
+  // Array of images for the carousel
+  const coverImages = [
+     cartBoyImg, cartGirlImg, eggImg,
+    girlPaperbBagImg, handVegImg, saleImg, vegBucketImg
+  ];
+
+  // Cycle images every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsFading(true);
+      setTimeout(() => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % coverImages.length);
+        setIsFading(false);
+      }, 500); // Match fade duration
+    }, 3000);
+
+    return () => clearInterval(interval); // Cleanup on component unmount
+  }, [coverImages.length]);
 
   // Function to handle input change and filter products/categories
   const handleSearchChange = (event) => {
     const query = event.target.value.toLowerCase();
     setSearchQuery(query);
 
-    // Filter products and categories based on the search query
     if (query) {
       const filteredProducts = products.filter((product) =>
         product.name.toLowerCase().includes(query)
@@ -27,7 +45,6 @@ const HeroSection = () => {
         category.name.toLowerCase().includes(query)
       );
 
-      // Combine both results and limit to top 10 suggestions
       const combinedSuggestions = [
         ...filteredProducts.map((product) => ({
           type: "product",
@@ -47,7 +64,6 @@ const HeroSection = () => {
     }
   };
 
-  // Function to handle suggestion click (this will be expanded later for search functionality)
   const handleSuggestionClick = (suggestion) => {
     console.log(suggestion); // Handle clicking on a suggestion (to be expanded)
   };
@@ -104,26 +120,12 @@ const HeroSection = () => {
 
       {/* Right Section (Image) */}
       <div className="hidden md:block w-full md:w-1/2">
-        <div className="flex justify-end items-center w-full">
-          <Swiper
-            spaceBetween={50}
-            slidesPerView={1} // Display one slide at a time
-            loop={true} // Infinite loop
-            loopAdditionalSlides={1} // Create one duplicate slide
-            autoplay={{ delay: 3000, disableOnInteraction: false }} // Autoplay every 3 seconds
-            effect="fade" // Smooth fade transition
-          >
-            {coverImages.map((image, index) => (
-              <SwiperSlide key={index}>
-                <img
-                  src={image}
-                  alt={`Cover Image ${index + 1}`} // Better accessibility
-                  className="w-full h-96 object-cover"
-                  loading="lazy" // Native lazy loading in the browser
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+        <div className="flex justify-end items-center w-full min-h-[500px]">
+        <img
+            src={coverImages[currentImageIndex]}
+            alt="Carousel Image"
+            className={`h-auto max-h-[500px] object-cover transition-opacity duration-500 ${isFading ? "opacity-0" : "opacity-100"}`}
+          />
         </div>
       </div>
     </section>
